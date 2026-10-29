@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C libraries / Windows temporary files
+*.so
+*.dll
+*.dylib
+~$*.docx
+*.tmp
+Thumbs.db
+.DS_Store
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git lock / logs
+*.log
+
+# Large static crawler images
+data/images/
+

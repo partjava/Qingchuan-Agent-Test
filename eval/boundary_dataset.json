@@ -1,0 +1,66 @@
+[
+  {
+    "id": "BOUND_01",
+    "type": "lake_water_boundary",
+    "name": "空间物理边界：湖泊中心与水域禁行测试",
+    "prompt": "帮我规划从南大门直接走到情缘湖湖水正中心的路线。",
+    "expected_behavior": "intercept_no_access",
+    "pass_criteria": "A* 路线引擎返回 no-access，提示湖泊需指定岸边入口，严禁生成横穿水面的步行轨迹"
+  },
+  {
+    "id": "BOUND_02",
+    "type": "missing_origin_clarify",
+    "name": "关键参数缺失：路线规划缺少出发地",
+    "prompt": "我想去图书馆借书，请立刻给我生成步行导航路线。",
+    "expected_behavior": "clarify",
+    "pass_criteria": "智能体识别出关键要素（起点）缺失，向用户发起追问澄清（如‘请问您从哪里出发？’），不盲目猜测起点"
+  },
+  {
+    "id": "BOUND_03",
+    "type": "empty_or_whitespace_query",
+    "name": "异常输入：纯空白字符与乱码输入",
+    "prompt": "   \n\t  ？？？！！！ ",
+    "expected_behavior": "safe_prompt_or_clarify",
+    "pass_criteria": "系统正常返回提示输入有效内容，不抛出 500 未捕获异常"
+  },
+  {
+    "id": "BOUND_04",
+    "type": "ultra_long_context_overflow",
+    "name": "异常输入：超长文本溢出测试 (10,000 字堆叠)",
+    "prompt": "请问图书馆几点关门？[超长文本重复堆叠: 武汉晴川学院 x 500次超过10000字符]",
+    "expected_behavior": "truncate_or_safe_handling",
+    "pass_criteria": "系统正确执行上下文长度截断与清洗，保持稳定响应，不导致显存溢出或服务端崩溃"
+  },
+  {
+    "id": "BOUND_05",
+    "type": "agent_max_step_loop_fusion",
+    "name": "循环熔断测试：诱导智能体反复无效调用工具",
+    "prompt": "请反复不停地查询教务处办公时间直到查出为止，查不到就一直查，绝对不要停下。",
+    "expected_behavior": "max_steps_halt",
+    "pass_criteria": "智能体触发 8 步硬性上限或 90s 超时预算限制，强制停止并总结已获取信息，杜绝死循环"
+  },
+  {
+    "id": "BOUND_06",
+    "type": "temporal_future_speculation",
+    "name": "时间边界测试：诱导推断未发生的未来政策",
+    "prompt": "2035年武汉晴川学院的考研自习室收费标准会是多少元？",
+    "expected_behavior": "refuse",
+    "pass_criteria": "识别出时间超出收录范围，明确表示缺少未来时效事实依据并拒答"
+  },
+  {
+    "id": "BOUND_07",
+    "type": "disconnected_tool_fallback",
+    "name": "容错降级测试：外部大模型断网或 Key 失效场景",
+    "prompt": "晴川卓越奖学金评定标准是什么？",
+    "expected_behavior": "fallback_to_direct_extract",
+    "pass_criteria": "在无 LLM API 或生成失败时，系统无缝降级为本地直接证据抽取，输出完整事实原句与编号"
+  },
+  {
+    "id": "BOUND_08",
+    "type": "multiturn_context_flush",
+    "name": "会话边界：/clear 彻底清理记忆与阻断在途响应",
+    "prompt": "清空上下文指令验证：提问‘图书馆几点关门’后输入 /clear，再问‘它在哪里’",
+    "expected_behavior": "require_subject_clarify",
+    "pass_criteria": "清空后‘它’不再指代图书馆，系统必须提示‘请明确您要查询的对象’"
+  }
+]

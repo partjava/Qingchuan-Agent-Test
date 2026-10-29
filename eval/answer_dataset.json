@@ -1,0 +1,567 @@
+[
+  {
+    "id": "answer_01",
+    "question": "图书馆每天几点开门和闭馆？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "library.md"
+    ],
+    "expected_facts": [
+      "07:30",
+      "22:00"
+    ]
+  },
+  {
+    "id": "answer_02",
+    "question": "图书管晚上几点关门？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "library.md"
+    ],
+    "expected_facts": [
+      "22:00"
+    ]
+  },
+  {
+    "id": "answer_03",
+    "question": "那周末呢？",
+    "history": [
+      {
+        "role": "user",
+        "content": "图书馆几点开放？"
+      }
+    ],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "library.md"
+    ],
+    "expected_facts": [
+      "07:30",
+      "22:00"
+    ]
+  },
+  {
+    "id": "answer_04",
+    "question": "工作日晚上借还书最晚到几点？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "library.md"
+    ],
+    "expected_facts": [
+      "21:30"
+    ]
+  },
+  {
+    "id": "answer_05",
+    "question": "那借书能借多久？",
+    "history": [
+      {
+        "role": "user",
+        "content": "图书馆周末开门吗？"
+      }
+    ],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "library.md"
+    ],
+    "expected_facts": [
+      "30天"
+    ]
+  },
+  {
+    "id": "answer_06",
+    "question": "那逾期收费是多少？",
+    "history": [
+      {
+        "role": "user",
+        "content": "图书馆借书能借多久？"
+      }
+    ],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "library.md"
+    ],
+    "expected_facts": [
+      "0.1元"
+    ]
+  },
+  {
+    "id": "answer_07",
+    "question": "本科生在图书馆最多借几本？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "library.md"
+    ],
+    "expected_facts": [
+      "10册"
+    ]
+  },
+  {
+    "id": "answer_08",
+    "question": "图书馆教职工可以借几本？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "library.md"
+    ],
+    "expected_facts": [
+      "30册"
+    ]
+  },
+  {
+    "id": "answer_09",
+    "question": "图书馆续借几次？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "library.md"
+    ],
+    "expected_facts": [
+      "1次",
+      "30天"
+    ]
+  },
+  {
+    "id": "answer_10",
+    "question": "图书馆电子阅览室什么时候开？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "library.md"
+    ],
+    "expected_facts": [
+      "08:30",
+      "21:00"
+    ]
+  },
+  {
+    "id": "answer_11",
+    "question": "图书馆咨询电话是多少？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [],
+    "expected_facts": [
+      "027-87934431"
+    ],
+    "expected_source_alternatives": [
+      "library",
+      "office_contacts"
+    ]
+  },
+  {
+    "id": "answer_12",
+    "question": "图书馆总共几层？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "library.md"
+    ],
+    "expected_facts": [
+      "4层"
+    ]
+  },
+  {
+    "id": "answer_13",
+    "question": "图书馆丢书买新书赔偿还要交多少加工费？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "library.md"
+    ],
+    "expected_facts": [
+      "5元"
+    ]
+  },
+  {
+    "id": "answer_14",
+    "question": "晴川奖学金材料截止什么时候？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "scholarship.md"
+    ],
+    "expected_facts": [
+      "第5教学周周五"
+    ]
+  },
+  {
+    "id": "answer_15",
+    "question": "那什么时候截止？",
+    "history": [
+      {
+        "role": "user",
+        "content": "晴川奖学金怎么申请？"
+      }
+    ],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "scholarship.md"
+    ],
+    "expected_facts": [
+      "第5教学周周五"
+    ]
+  },
+  {
+    "id": "answer_16",
+    "question": "晴川奖学金一等奖多少钱？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "scholarship.md"
+    ],
+    "expected_facts": [
+      "3000元"
+    ]
+  },
+  {
+    "id": "answer_17",
+    "question": "晴川奖学金二等奖多少钱？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "scholarship.md"
+    ],
+    "expected_facts": [
+      "2000元"
+    ]
+  },
+  {
+    "id": "answer_18",
+    "question": "晴川奖学金三等奖多少钱？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "scholarship.md"
+    ],
+    "expected_facts": [
+      "1000元"
+    ]
+  },
+  {
+    "id": "answer_19",
+    "question": "晴川奖学金有挂科还能申请吗？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "scholarship.md"
+    ],
+    "expected_facts": [
+      "取消"
+    ]
+  },
+  {
+    "id": "answer_20",
+    "question": "晴川奖学金GPA一定要3.0吗？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "scholarship.md"
+    ],
+    "expected_facts": [
+      "前列"
+    ]
+  },
+  {
+    "id": "answer_21",
+    "question": "晴川奖学金学院初评公示至少几天？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "scholarship.md"
+    ],
+    "expected_facts": [
+      "3个工作日"
+    ]
+  },
+  {
+    "id": "answer_22",
+    "question": "晴川奖学金学校终审公示至少几天？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "scholarship.md"
+    ],
+    "expected_facts": [
+      "5个工作日"
+    ]
+  },
+  {
+    "id": "answer_23",
+    "question": "计院办公室电话多少？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "office_contacts.md"
+    ],
+    "expected_facts": [
+      "027-87934453"
+    ]
+  },
+  {
+    "id": "answer_24",
+    "question": "退改选课程截止什么时候？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "course_selection.md"
+    ],
+    "expected_facts": [
+      "第2教学周周五17:00"
+    ]
+  },
+  {
+    "id": "answer_25",
+    "question": "选课第一轮何时截止？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "course_selection.md"
+    ],
+    "expected_facts": [
+      "第1教学周周三12:00"
+    ]
+  },
+  {
+    "id": "answer_26",
+    "question": "图书馆地下三层VR游戏中心怎么预约？",
+    "history": [],
+    "expected_refusal": true,
+    "expected_clarification": false,
+    "expected_sources": [],
+    "expected_facts": []
+  },
+  {
+    "id": "answer_27",
+    "question": "2035年图书馆寒假每天几点开放？",
+    "history": [],
+    "expected_refusal": true,
+    "expected_clarification": false,
+    "expected_sources": [],
+    "expected_facts": []
+  },
+  {
+    "id": "answer_28",
+    "question": "明天苹果股票会涨多少钱？",
+    "history": [],
+    "expected_refusal": true,
+    "expected_clarification": false,
+    "expected_sources": [],
+    "expected_facts": []
+  },
+  {
+    "id": "answer_29",
+    "question": "那什么时候截止？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": true,
+    "expected_sources": [],
+    "expected_facts": []
+  },
+  {
+    "id": "answer_30",
+    "question": "那里几点关门？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": true,
+    "expected_sources": [],
+    "expected_facts": []
+  },
+  {
+    "id": "answer_31",
+    "question": "图书馆普通学生借书期限是多少天？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "library"
+    ],
+    "expected_facts": [
+      "30天"
+    ]
+  },
+  {
+    "id": "answer_32",
+    "question": "晴川奖学金什么时候发到银行卡？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "scholarship"
+    ],
+    "expected_facts": [
+      "公示期满无异议后"
+    ]
+  },
+  {
+    "id": "answer_33",
+    "question": "计算机学院学费多少钱？",
+    "history": [],
+    "expected_refusal": true,
+    "expected_clarification": false,
+    "expected_sources": [],
+    "expected_facts": []
+  },
+  {
+    "id": "answer_34",
+    "question": "图书馆馆长手机号是多少？",
+    "history": [],
+    "expected_refusal": true,
+    "expected_clarification": false,
+    "expected_sources": [],
+    "expected_facts": []
+  },
+  {
+    "id": "answer_35",
+    "question": "图书馆2027年翻新预算是多少万元？",
+    "history": [],
+    "expected_refusal": true,
+    "expected_clarification": false,
+    "expected_sources": [],
+    "expected_facts": []
+  },
+  {
+    "id": "answer_36",
+    "question": "它什么时候关闭？",
+    "history": [
+      {
+        "role": "user",
+        "content": "图书馆几点开门？"
+      },
+      {
+        "role": "user",
+        "content": "学校校长是谁？"
+      }
+    ],
+    "expected_refusal": false,
+    "expected_clarification": true,
+    "expected_sources": [],
+    "expected_facts": []
+  },
+  {
+    "id": "answer_37",
+    "question": "学工处联系电话是多少？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [],
+    "expected_facts": [
+      "027-87934608"
+    ],
+    "expected_source_alternatives": [
+      "office_contacts",
+      "scholarship"
+    ]
+  },
+  {
+    "id": "answer_38",
+    "question": "按知识库的标准，国家奖学金每人每年多少钱？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [],
+    "expected_facts": [
+      "8000元"
+    ],
+    "expected_source_alternatives": [
+      "scholarship",
+      "info_disclosure",
+      "news_xxyw"
+    ]
+  },
+  {
+    "id": "answer_39",
+    "question": "按知识库的标准，国家励志奖学金每年奖励多少元？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [],
+    "expected_facts": [
+      "5000元"
+    ],
+    "expected_source_alternatives": [
+      "scholarship",
+      "info_disclosure",
+      "news_xxyw"
+    ]
+  },
+  {
+    "id": "answer_40",
+    "question": "GPU实验机房单次默认能预约多长时间？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "laboratory"
+    ],
+    "expected_facts": [
+      "3小时"
+    ]
+  },
+  {
+    "id": "answer_41",
+    "question": "计院有哪些专业？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [],
+    "expected_source_alternatives": [
+      "campus_organizations"
+    ],
+    "expected_facts": [
+      "人工智能",
+      "软件工程",
+      "计算机科学与技术"
+    ]
+  },
+  {
+    "id": "answer_42",
+    "question": "图书馆老师可以借几本？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_sources": [
+      "library"
+    ],
+    "expected_facts": [
+      "30册"
+    ]
+  },
+  {
+    "id": "answer_43",
+    "question": "图书馆研究生能借多少册？",
+    "history": [],
+    "expected_refusal": true,
+    "expected_clarification": false,
+    "expected_sources": [],
+    "expected_facts": []
+  }
+]

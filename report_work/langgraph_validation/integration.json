@@ -1,0 +1,187 @@
+{
+  "kind": "local_http_integration",
+  "real_model_evaluation": false,
+  "created_at": "2026-10-28T12:36:56.976071+00:00",
+  "framework": "LangGraph",
+  "framework_version": "1.2.6",
+  "knowledge_chunks": 29427,
+  "model_requests": [
+    {
+      "path": "/v1/chat/completions",
+      "observations_received": 0
+    },
+    {
+      "path": "/v1/chat/completions",
+      "observations_received": 1
+    },
+    {
+      "path": "/v1/chat/completions",
+      "observations_received": 2
+    },
+    {
+      "path": "/v1/chat/completions",
+      "observations_received": 3
+    },
+    {
+      "path": "/v1/chat/completions",
+      "observations_received": 4
+    },
+    {
+      "path": "/v1/chat/completions",
+      "observations_received": 5
+    }
+  ],
+  "description": "本地脚本模型HTTP服务配合真实知识库、地标、时间、路线工具及临时会话数据库。",
+  "checks": {
+    "api_contract": true,
+    "all_four_tools": true,
+    "plan_verified": true,
+    "evidence_links": true,
+    "navigation": true,
+    "history_and_clear": true
+  },
+  "result": {
+    "answer": "**办理建议**\n1. 建议先去图书馆办理还书。 [1]\n\n待核实事项：\n• 图书馆当日临时调整尚待核实",
+    "citations": [
+      {
+        "index": 1,
+        "source": "library",
+        "doc_name": "2. 图书馆开放时间表",
+        "title": "2. 图书馆开放时间表",
+        "url": "https://tsg.qcuwh.edu.cn",
+        "preview": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+        "full_text": "## 2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- **开闭馆时间**：周一至周日 **07:30 — 22:00 全天开放**（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- **考研专属自习室**：每日开放时间为 **07:30 — 22:00**，严禁使用私人物品长期霸占无主座位；",
+        "evidence_text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+        "section_id": "library:2"
+      },
+      {
+        "index": 2,
+        "source": "campus_map",
+        "doc_name": "保存的默认校园示意路网",
+        "title": "保存的默认校园示意路网",
+        "url": "",
+        "preview": "示意路线：正大门 → 图书馆。依据项目保存的默认道路图计算；不代表实测距离、通行条件或实时路况。浏览器自定义路网可能不同。",
+        "full_text": "示意路线：正大门 → 图书馆。依据项目保存的默认道路图计算；不代表实测距离、通行条件或实时路况。浏览器自定义路网可能不同。",
+        "evidence_text": "示意路线：正大门 → 图书馆。依据项目保存的默认道路图计算；不代表实测距离、通行条件或实时路况。浏览器自定义路网可能不同。",
+        "section_id": ""
+      }
+    ],
+    "evidence": [
+      {
+        "citation_index": 1,
+        "text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+        "evidence_id": "e4"
+      },
+      {
+        "citation_index": 2,
+        "text": "示意路线：正大门 → 图书馆。依据项目保存的默认道路图计算；不代表实测距离、通行条件或实时路况。浏览器自定义路网可能不同。",
+        "evidence_id": "e5"
+      }
+    ],
+    "refused": false,
+    "clarification": false,
+    "partial": true,
+    "navigation": {
+      "from_id": "south_gate",
+      "to_id": "library"
+    },
+    "target_landmark": null,
+    "entities": [],
+    "retrieved_chunks": [],
+    "llm_provider": "校园办事智能体 · 模型决策 / 工具证据",
+    "agent": {
+      "run_id": "64f0a206c24149ecad225322c69b2bed",
+      "stop_reason": "completed",
+      "model_called": true,
+      "trace": [
+        {
+          "step": 1,
+          "tool": "current_time",
+          "arguments": {},
+          "status": "ok",
+          "summary": "返回可引用依据：1",
+          "evidence_ids": [
+            "e1"
+          ],
+          "elapsed_ms": 25.6
+        },
+        {
+          "step": 2,
+          "tool": "lookup_place",
+          "arguments": {
+            "name": "南大门"
+          },
+          "status": "ok",
+          "summary": "返回可引用依据：1",
+          "evidence_ids": [
+            "e2"
+          ],
+          "elapsed_ms": 84.1
+        },
+        {
+          "step": 3,
+          "tool": "lookup_place",
+          "arguments": {
+            "name": "图书馆"
+          },
+          "status": "ok",
+          "summary": "返回可引用依据：1",
+          "evidence_ids": [
+            "e3"
+          ],
+          "elapsed_ms": 3.6
+        },
+        {
+          "step": 4,
+          "tool": "search_knowledge",
+          "arguments": {
+            "query": "图书馆工作日停止借还时间"
+          },
+          "status": "ok",
+          "summary": "找到1条原文依据。资料有效期仍需结合原始公告核实。",
+          "evidence_ids": [
+            "e4"
+          ],
+          "elapsed_ms": 423.4
+        },
+        {
+          "step": 5,
+          "tool": "plan_route",
+          "arguments": {
+            "from_id": "south_gate",
+            "to_id": "library"
+          },
+          "status": "ok",
+          "summary": "示意路网计算完成，实际通行以现场标识为准。",
+          "evidence_ids": [
+            "e5"
+          ],
+          "elapsed_ms": 121.0
+        }
+      ],
+      "evidence_count": 2,
+      "plan_status": "checked",
+      "elapsed_ms": 671.5,
+      "framework": "LangGraph",
+      "framework_version": "1.2.6",
+      "graph_nodes": [
+        "decide",
+        "tools",
+        "decide",
+        "tools",
+        "decide",
+        "tools",
+        "decide",
+        "tools",
+        "decide",
+        "tools",
+        "decide",
+        "verify",
+        "finish"
+      ],
+      "session_id": "langgraph-smoke",
+      "model": "local-scripted-fixture",
+      "saved": true
+    }
+  }
+}

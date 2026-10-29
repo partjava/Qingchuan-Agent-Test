@@ -1,0 +1,358 @@
+[
+  {
+    "id": "composite_01",
+    "question": "图书馆和实验室分别几点关门？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_partial": false,
+    "expected_sources": [
+      "laboratory"
+    ],
+    "expected_source_alternatives": [
+      "library",
+      "campus_landmarks"
+    ],
+    "expected_facts": [
+      "22:00",
+      "20:30"
+    ],
+    "expected_subanswers": [
+      {
+        "label_contains": "图书馆",
+        "expected_facts": [
+          "22:00"
+        ],
+        "expected_refusal": false
+      },
+      {
+        "label_contains": "实验室",
+        "expected_facts": [
+          "20:30"
+        ],
+        "expected_refusal": false
+      }
+    ]
+  },
+  {
+    "id": "composite_02",
+    "question": "图书馆几点闭馆，一次最多能借多少本书？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_partial": false,
+    "expected_sources": [
+      "library"
+    ],
+    "expected_source_alternatives": [],
+    "expected_facts": [
+      "22:00",
+      "10册"
+    ],
+    "expected_subanswers": [
+      {
+        "label_contains": "闭馆",
+        "expected_facts": [
+          "22:00"
+        ],
+        "expected_refusal": false
+      },
+      {
+        "label_contains": "借",
+        "expected_facts": [
+          "10册"
+        ],
+        "expected_refusal": false
+      }
+    ]
+  },
+  {
+    "id": "composite_03",
+    "question": "图书馆在哪里，咨询电话是多少？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_partial": false,
+    "expected_sources": [],
+    "expected_source_alternatives": [
+      "library",
+      "campus_landmarks",
+      "office_contacts"
+    ],
+    "expected_facts": [
+      "惜缘湖",
+      "027-87934431"
+    ],
+    "expected_subanswers": [
+      {
+        "label_contains": "哪里",
+        "expected_facts": [
+          "惜缘湖"
+        ],
+        "expected_refusal": false
+      },
+      {
+        "label_contains": "电话",
+        "expected_facts": [
+          "027-87934431"
+        ],
+        "expected_refusal": false
+      }
+    ]
+  },
+  {
+    "id": "composite_04",
+    "question": "奖学金一等奖和二等奖各多少钱？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_partial": false,
+    "expected_sources": [
+      "scholarship"
+    ],
+    "expected_source_alternatives": [],
+    "expected_facts": [
+      "3000元",
+      "2000元"
+    ],
+    "expected_subanswers": [
+      {
+        "label_contains": "一等奖",
+        "expected_facts": [
+          "3000元"
+        ],
+        "expected_refusal": false
+      },
+      {
+        "label_contains": "二等奖",
+        "expected_facts": [
+          "2000元"
+        ],
+        "expected_refusal": false
+      }
+    ]
+  },
+  {
+    "id": "composite_05",
+    "question": "国家奖学金和国家励志奖学金各多少钱？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_partial": false,
+    "expected_sources": [],
+    "expected_source_alternatives": [
+      "scholarship",
+      "info_disclosure",
+      "news_xxyw"
+    ],
+    "expected_facts": [
+      "8000元",
+      "5000元"
+    ],
+    "expected_subanswers": [
+      {
+        "label_contains": "国家奖学金",
+        "expected_facts": [
+          "8000元"
+        ],
+        "expected_refusal": false
+      },
+      {
+        "label_contains": "国家励志奖学金",
+        "expected_facts": [
+          "5000元"
+        ],
+        "expected_refusal": false
+      }
+    ]
+  },
+  {
+    "id": "composite_06",
+    "question": "图书馆一次能借多少本书？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_partial": false,
+    "expected_sources": [
+      "library"
+    ],
+    "expected_source_alternatives": [],
+    "expected_facts": [
+      "10册"
+    ],
+    "expected_subanswers": []
+  },
+  {
+    "id": "composite_07",
+    "question": "图书馆老师一次最多能借多少本？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_partial": false,
+    "expected_sources": [
+      "library"
+    ],
+    "expected_source_alternatives": [],
+    "expected_facts": [
+      "30册"
+    ],
+    "expected_subanswers": []
+  },
+  {
+    "id": "composite_08",
+    "question": "图书馆位于哪里以及本科生借阅上限是多少？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_partial": false,
+    "expected_sources": [],
+    "expected_source_alternatives": [
+      "library",
+      "campus_landmarks"
+    ],
+    "expected_facts": [
+      "惜缘湖",
+      "10册"
+    ],
+    "expected_subanswers": [
+      {
+        "label_contains": "哪里",
+        "expected_facts": [
+          "惜缘湖"
+        ],
+        "expected_refusal": false
+      },
+      {
+        "label_contains": "上限",
+        "expected_facts": [
+          "10册"
+        ],
+        "expected_refusal": false
+      }
+    ]
+  },
+  {
+    "id": "composite_09",
+    "question": "图书馆在哪里？业务电话是多少？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_partial": false,
+    "expected_sources": [],
+    "expected_source_alternatives": [
+      "library",
+      "campus_landmarks",
+      "office_contacts"
+    ],
+    "expected_facts": [
+      "惜缘湖",
+      "027-87934431"
+    ],
+    "expected_subanswers": [
+      {
+        "label_contains": "哪里",
+        "expected_facts": [
+          "惜缘湖"
+        ],
+        "expected_refusal": false
+      },
+      {
+        "label_contains": "电话",
+        "expected_facts": [
+          "027-87934431"
+        ],
+        "expected_refusal": false
+      }
+    ]
+  },
+  {
+    "id": "composite_10",
+    "question": "奖学金一等奖多少钱，二等奖呢？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_partial": false,
+    "expected_sources": [
+      "scholarship"
+    ],
+    "expected_source_alternatives": [],
+    "expected_facts": [
+      "3000元",
+      "2000元"
+    ],
+    "expected_subanswers": [
+      {
+        "label_contains": "一等奖",
+        "expected_facts": [
+          "3000元"
+        ],
+        "expected_refusal": false
+      },
+      {
+        "label_contains": "二等奖",
+        "expected_facts": [
+          "2000元"
+        ],
+        "expected_refusal": false
+      }
+    ]
+  },
+  {
+    "id": "composite_11",
+    "question": "图书馆几点闭馆，馆长手机号是多少？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_partial": true,
+    "expected_sources": [
+      "library"
+    ],
+    "expected_source_alternatives": [],
+    "expected_facts": [
+      "22:00"
+    ],
+    "expected_subanswers": [
+      {
+        "label_contains": "闭馆",
+        "expected_facts": [
+          "22:00"
+        ],
+        "expected_refusal": false
+      },
+      {
+        "label_contains": "馆长",
+        "expected_facts": [],
+        "expected_refusal": true
+      }
+    ]
+  },
+  {
+    "id": "composite_12",
+    "question": "图书馆可以借几本，研究生能借多少册？",
+    "history": [],
+    "expected_refusal": false,
+    "expected_clarification": false,
+    "expected_partial": true,
+    "expected_sources": [
+      "library"
+    ],
+    "expected_source_alternatives": [],
+    "expected_facts": [
+      "10册"
+    ],
+    "expected_subanswers": [
+      {
+        "label_contains": "图书馆可以借",
+        "expected_facts": [
+          "10册"
+        ],
+        "expected_refusal": false
+      },
+      {
+        "label_contains": "研究生",
+        "expected_facts": [],
+        "expected_refusal": true
+      }
+    ]
+  }
+]

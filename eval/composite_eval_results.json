@@ -1,0 +1,1118 @@
+{
+  "hybrid": {
+    "mode": "hybrid",
+    "total_cases": 12,
+    "answerable_count": 12,
+    "unknown_count": 0,
+    "clarification_count": 0,
+    "passed_count": 12,
+    "expected_answer_accuracy": 1.0,
+    "unknown_refusal_accuracy": 0.0,
+    "clarification_accuracy": 0.0,
+    "metric_definitions": {
+      "expected_answer_accuracy": "All lexical reference facts and linked evidence/source/citation checks pass. Source coverage only checks document identifiers; citation checks validate linkage and numeric literals, not full claim entailment or semantic correctness.",
+      "unknown_refusal_accuracy": "Expected unknown cases with correct refusal and clarification decisions / unknown count.",
+      "numeric_claim_support": "All numeric literals occur in the evidence of their inline citation; not full entailment.",
+      "source_coverage": "All expected_sources are required, plus at least one expected_source_alternatives when supplied. Identifiers are normalized to filename stems; this checks identifier coverage, not full source correctness.",
+      "zero_denominator": "Reported as 0.0; counts distinguish absent categories."
+    },
+    "cases": [
+      {
+        "id": "composite_01",
+        "question": "图书馆和实验室分别几点关门？",
+        "history": [],
+        "answer": "🎯【核心解答】\n\n**图书馆分别几点关门**\n• 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。 [1]\n\n**实验室分别几点关门**\n• 教学工作日：周一至周五 08:00 — 20:30 全天候连续开放； [2]\n• 周末及节假日：周六至周日 08:30 — 17:30 实行网上预约审批开放； [2]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "2. 图书馆开放时间表",
+            "preview": "2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- 考研专属自习室：每日开放时间为 07:30 — 22:00，严禁使用私",
+            "full_text": "2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- 考研专属自习室：每日开放时间为 07:30 — 22:00，严禁使用私人物品长期霸占无主座位；",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+            "section_id": "library:2"
+          },
+          {
+            "index": 2,
+            "source": "laboratory",
+            "doc_name": "武汉晴川学院教学实验室与机房开放管理规范",
+            "title": "2. 开放时间与机房在线预约流程",
+            "preview": "2. 开放时间与机房在线预约流程\n为深化高素质应用型人才培养，学校各类实验室与计算机机房在保质保量完成计划内实验教学任务的前提下，全面推行课外自主开放：\n1. 常规开放时间：\n   - 教学工作日：周一至周五 08:00 — 20:30 全天候连续开放；\n   - 周末及节假日：周六至周日 08:30 — 17:30 实行网上预约审批开放；",
+            "full_text": "2. 开放时间与机房在线预约流程\n为深化高素质应用型人才培养，学校各类实验室与计算机机房在保质保量完成计划内实验教学任务的前提下，全面推行课外自主开放：\n1. 常规开放时间：\n   - 教学工作日：周一至周五 08:00 — 20:30 全天候连续开放；\n   - 周末及节假日：周六至周日 08:30 — 17:30 实行网上预约审批开放；\n   - 寒暑假期间：针对学科竞赛集训（如中国大学生计算机设计大赛、大广赛、蓝桥杯、智能汽车竞赛）实施专人值班与集中封闭式开放。\n2. 学生自主上机与机房预约流程：\n   - 学生开展课外科创、毕业设计或专业实验，须提前 1～3 天登录“晴川实验室综合管理平台（https://lab.qcuwh.edu.cn）”提交开放预约申请；\n   - GPU 实验机房与专业工作站：单次默认预约时长为 3 小时；如因模型训练或长周期算法渲染确需延长时长的，需在线提交指导教师签署的《长时间实验计算申请单》，经实验室主任线上审核后自动顺延。\n   - 预约成功后，学生凭本人校园卡在机房门禁终端刷卡进出，系统自动计时并分配对应机位。",
+            "url": "https://lab.qcuwh.edu.cn",
+            "evidence_text": "教学工作日：周一至周五 08:00 — 20:30 全天候连续开放；\n周末及节假日：周六至周日 08:30 — 17:30 实行网上预约审批开放；",
+            "section_id": "laboratory:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+            "score": 1.24,
+            "subquestion_index": 0
+          },
+          {
+            "citation_index": 2,
+            "text": "教学工作日：周一至周五 08:00 — 20:30 全天候连续开放；",
+            "score": 0.54,
+            "subquestion_index": 1
+          },
+          {
+            "citation_index": 2,
+            "text": "周末及节假日：周六至周日 08:30 — 17:30 实行网上预约审批开放；",
+            "score": 0.54,
+            "subquestion_index": 1
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [
+          {
+            "question": "图书馆分别几点关门",
+            "label": "图书馆分别几点关门",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "time",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。 [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          },
+          {
+            "question": "实验室分别几点关门",
+            "label": "实验室分别几点关门",
+            "slots": {
+              "subject": [
+                "实验室"
+              ],
+              "attribute": "time",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 教学工作日：周一至周五 08:00 — 20:30 全天候连续开放； [2]\n• 周末及节假日：周六至周日 08:30 — 17:30 实行网上预约审批开放； [2]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              2
+            ]
+          }
+        ],
+        "subanswer_coverage": 1.0,
+        "expected_clarification": false,
+        "expected_facts": [
+          "22:00",
+          "20:30"
+        ],
+        "expected_sources": [
+          "laboratory"
+        ],
+        "expected_source_alternatives": [
+          "campus_landmarks",
+          "library"
+        ],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 291.08049999922514
+      },
+      {
+        "id": "composite_02",
+        "question": "图书馆几点闭馆，一次最多能借多少本书？",
+        "history": [],
+        "answer": "🎯【核心解答】\n\n**图书馆几点闭馆**\n• 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。 [1]\n\n**图书馆，一次最多能借多少本书**\n• 全日制在校本专科学生：每人限借 10 册图书； [2]\n• 在职教职员工：每人限借 30 册图书。 [2]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "2. 图书馆开放时间表",
+            "preview": "2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- 考研专属自习室：每日开放时间为 07:30 — 22:00，严禁使用私",
+            "full_text": "2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- 考研专属自习室：每日开放时间为 07:30 — 22:00，严禁使用私人物品长期霸占无主座位；",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+            "section_id": "library:2"
+          },
+          {
+            "index": 2,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "3. 图书借还与流通规则",
+            "preview": "务号在线续借 1 次，续借期限为 30 天（最长可连续持有 60 天）。遇到全校资产清查等特殊情况，图书馆有权随时催还图书。\n3. 不可外借文献：各阅览区内的样本书、大型工具书、中文核心现刊报纸、古籍特藏文献仅供在馆内阅览复印，概不外借。\n4. 逾期处理与滞还金：\n   - 为保障校园图书资源的正常流通，请读者按期归还图书；\n   - 超过规定借期归还的图书",
+            "full_text": "务号在线续借 1 次，续借期限为 30 天（最长可连续持有 60 天）。遇到全校资产清查等特殊情况，图书馆有权随时催还图书。\n3. 不可外借文献：各阅览区内的样本书、大型工具书、中文核心现刊报纸、古籍特藏文献仅供在馆内阅览复印，概不外借。\n4. 逾期处理与滞还金：\n   - 为保障校园图书资源的正常流通，请读者按期归还图书；\n   - 超过规定借期归还的图书，系统将按照每册每天 0.1 元的标准收取图书逾期滞还金，并在结清前暂停借书权限。",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "全日制在校本专科学生：每人限借 10 册图书；\n在职教职员工：每人限借 30 册图书。",
+            "section_id": "library:3"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+            "score": 1.49,
+            "subquestion_index": 0
+          },
+          {
+            "citation_index": 2,
+            "text": "全日制在校本专科学生：每人限借 10 册图书；",
+            "score": 0.6233,
+            "subquestion_index": 1
+          },
+          {
+            "citation_index": 2,
+            "text": "在职教职员工：每人限借 30 册图书。",
+            "score": 0.6233,
+            "subquestion_index": 1
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [
+          {
+            "question": "图书馆几点闭馆",
+            "label": "图书馆几点闭馆",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "time",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。 [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          },
+          {
+            "question": "图书馆，一次最多能借多少本书",
+            "label": "图书馆，一次最多能借多少本书",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "quota",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 全日制在校本专科学生：每人限借 10 册图书； [2]\n• 在职教职员工：每人限借 30 册图书。 [2]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              2
+            ]
+          }
+        ],
+        "subanswer_coverage": 1.0,
+        "expected_clarification": false,
+        "expected_facts": [
+          "22:00",
+          "10册"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 311.60610006190836
+      },
+      {
+        "id": "composite_03",
+        "question": "图书馆在哪里，咨询电话是多少？",
+        "history": [],
+        "answer": "🎯【核心解答】\n\n**图书馆在哪里**\n• 晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式： [1]\n\n**图书馆，咨询电话是多少**\n• 业务咨询服务电话：027-87934431 [2]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "1. 馆藏布局与功能导览",
+            "preview": "1. 馆藏布局与功能导览\n晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：\n- 1 楼（总服务台与密集书库）：设有图书馆总服务台、还书处、自助借还书终端机、密集书库、学术报告厅及智能门禁通行闸机；",
+            "full_text": "1. 馆藏布局与功能导览\n晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：\n- 1 楼（总服务台与密集书库）：设有图书馆总服务台、还书处、自助借还书终端机、密集书库、学术报告厅及智能门禁通行闸机；",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：",
+            "section_id": "library:1"
+          },
+          {
+            "index": 2,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "4. 图书损坏、遗失赔偿与考研席位守则",
+            "preview": "4. 图书损坏、遗失赔偿与考研席位守则\n1. 遗失赔偿：读者遗失图书，须首选购买相同版次（或经图书馆认可的更新版次）的新书予以赔偿，并缴纳 5 元加工费；无法购得同种图书的，按原书价格的 2～5 倍予以现金赔偿。\n2. 考研自习室管理守则：\n   - 考研专座每年秋季面向全校大四考研学生开放集中申请，经审核通过后统一分配固定座位号；\n   - 入座学生须保持",
+            "full_text": "4. 图书损坏、遗失赔偿与考研席位守则\n1. 遗失赔偿：读者遗失图书，须首选购买相同版次（或经图书馆认可的更新版次）的新书予以赔偿，并缴纳 5 元加工费；无法购得同种图书的，按原书价格的 2～5 倍予以现金赔偿。\n2. 考研自习室管理守则：\n   - 考研专座每年秋季面向全校大四考研学生开放集中申请，经审核通过后统一分配固定座位号；\n   - 入座学生须保持安静，手机静音，离开座位超过 60 分钟视为离座弃用；严禁私拉接线板、使用大功率热得快等违规电器。",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "业务咨询服务电话：027-87934431",
+            "section_id": "library:4"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：",
+            "score": 1.14,
+            "subquestion_index": 0
+          },
+          {
+            "citation_index": 2,
+            "text": "业务咨询服务电话：027-87934431",
+            "score": 0.7622,
+            "subquestion_index": 1
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [
+          {
+            "question": "图书馆在哪里",
+            "label": "图书馆在哪里",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "location",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式： [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          },
+          {
+            "question": "图书馆，咨询电话是多少",
+            "label": "图书馆，咨询电话是多少",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "contact",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 业务咨询服务电话：027-87934431 [2]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              2
+            ]
+          }
+        ],
+        "subanswer_coverage": 1.0,
+        "expected_clarification": false,
+        "expected_facts": [
+          "惜缘湖",
+          "027-87934431"
+        ],
+        "expected_sources": [],
+        "expected_source_alternatives": [
+          "campus_landmarks",
+          "library",
+          "office_contacts"
+        ],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 305.99649995565414
+      },
+      {
+        "id": "composite_04",
+        "question": "奖学金一等奖和二等奖各多少钱？",
+        "history": [],
+        "answer": "🎯【核心解答】\n\n**奖学金一等奖各多少钱**\n• 晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名； [1]\n\n**奖学金二等奖各多少钱**\n• 晴川奖学金二等奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名； [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "（一）校级晴川奖学金",
+            "preview": "（一）校级晴川奖学金\n晴川奖学金是学校面向优秀在读学生设立的最高规格校级荣誉奖项，旨在激励晴川学子立大志、成大才、争创一流。评审对象为全日制本专科大二及以上年级的优秀在读学生（专升本学生自就读本科第二年起具备申请资格）：\n- 晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名；\n- 晴川奖学金二等奖（乙等）：奖励金额为每人每学年",
+            "full_text": "（一）校级晴川奖学金\n晴川奖学金是学校面向优秀在读学生设立的最高规格校级荣誉奖项，旨在激励晴川学子立大志、成大才、争创一流。评审对象为全日制本专科大二及以上年级的优秀在读学生（专升本学生自就读本科第二年起具备申请资格）：\n- 晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名；\n- 晴川奖学金二等奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名；\n奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名；\n- 晴川奖学金三等奖（丙等）：奖励金额为每人每学年 1000 元，全校评选 630 名。",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名；\n晴川奖学金二等奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名；",
+            "section_id": "scholarship:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名；",
+            "score": 1.2956,
+            "subquestion_index": 0
+          },
+          {
+            "citation_index": 1,
+            "text": "晴川奖学金二等奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名；",
+            "score": 1.2956,
+            "subquestion_index": 1
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [
+          {
+            "question": "奖学金一等奖各多少钱",
+            "label": "奖学金一等奖各多少钱",
+            "slots": {
+              "subject": [
+                "奖学金"
+              ],
+              "attribute": "amount",
+              "conditions": {
+                "grade": [
+                  "一等奖"
+                ]
+              }
+            },
+            "answer": "🎯【核心解答】\n• 晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名； [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          },
+          {
+            "question": "奖学金二等奖各多少钱",
+            "label": "奖学金二等奖各多少钱",
+            "slots": {
+              "subject": [
+                "奖学金"
+              ],
+              "attribute": "amount",
+              "conditions": {
+                "grade": [
+                  "二等奖"
+                ]
+              }
+            },
+            "answer": "🎯【核心解答】\n• 晴川奖学金二等奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名； [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          }
+        ],
+        "subanswer_coverage": 1.0,
+        "expected_clarification": false,
+        "expected_facts": [
+          "3000元",
+          "2000元"
+        ],
+        "expected_sources": [
+          "scholarship"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 355.59259995352477
+      },
+      {
+        "id": "composite_05",
+        "question": "国家奖学金和国家励志奖学金各多少钱？",
+        "history": [],
+        "answer": "🎯【核心解答】\n\n**国家奖学金各多少钱**\n• 国家奖学金：奖励特别优秀的全日制二年级及以上本科学生，奖励标准为每人每学年 8000 元，颁发教育部统一印制的荣誉证书； [1]\n\n**国家励志奖学金各多少钱**\n• 国家励志奖学金：奖励品学兼优的家庭经济困难学生，奖励标准为每人每学年 5000 元； [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "（三）国家级奖学金与国家助学金",
+            "preview": "（三）国家级奖学金与国家助学金\n- 国家奖学金：奖励特别优秀的全日制二年级及以上本科学生，奖励标准为每人每学年 8000 元，颁发教育部统一印制的荣誉证书；\n- 国家励志奖学金：奖励品学兼优的家庭经济困难学生，奖励标准为每人每学年 5000 元；\n- 国家助学金：资助家庭经济困难学生，平均资助标准为每生每年 3300 元（分为一等 4400 元、二等 330",
+            "full_text": "（三）国家级奖学金与国家助学金\n- 国家奖学金：奖励特别优秀的全日制二年级及以上本科学生，奖励标准为每人每学年 8000 元，颁发教育部统一印制的荣誉证书；\n- 国家励志奖学金：奖励品学兼优的家庭经济困难学生，奖励标准为每人每学年 5000 元；\n- 国家助学金：资助家庭经济困难学生，平均资助标准为每生每年 3300 元（分为一等 4400 元、二等 3300 元、三等 2200 元三档按月发放）。",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "国家奖学金：奖励特别优秀的全日制二年级及以上本科学生，奖励标准为每人每学年 8000 元，颁发教育部统一印制的荣誉证书；\n国家励志奖学金：奖励品学兼优的家庭经济困难学生，奖励标准为每人每学年 5000 元；",
+            "section_id": "scholarship:4"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "国家奖学金：奖励特别优秀的全日制二年级及以上本科学生，奖励标准为每人每学年 8000 元，颁发教育部统一印制的荣誉证书；",
+            "score": 1.24,
+            "subquestion_index": 0
+          },
+          {
+            "citation_index": 1,
+            "text": "国家励志奖学金：奖励品学兼优的家庭经济困难学生，奖励标准为每人每学年 5000 元；",
+            "score": 1.34,
+            "subquestion_index": 1
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [
+          {
+            "question": "国家奖学金各多少钱",
+            "label": "国家奖学金各多少钱",
+            "slots": {
+              "subject": [
+                "国家奖学金"
+              ],
+              "attribute": "amount",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 国家奖学金：奖励特别优秀的全日制二年级及以上本科学生，奖励标准为每人每学年 8000 元，颁发教育部统一印制的荣誉证书； [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          },
+          {
+            "question": "国家励志奖学金各多少钱",
+            "label": "国家励志奖学金各多少钱",
+            "slots": {
+              "subject": [
+                "国家励志奖学金"
+              ],
+              "attribute": "amount",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 国家励志奖学金：奖励品学兼优的家庭经济困难学生，奖励标准为每人每学年 5000 元； [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          }
+        ],
+        "subanswer_coverage": 1.0,
+        "expected_clarification": false,
+        "expected_facts": [
+          "8000元",
+          "5000元"
+        ],
+        "expected_sources": [],
+        "expected_source_alternatives": [
+          "info_disclosure",
+          "news_xxyw",
+          "scholarship"
+        ],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 362.51650005578995
+      },
+      {
+        "id": "composite_06",
+        "question": "图书馆一次能借多少本书？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 全日制在校本专科学生：每人限借 10 册图书； [1]\n• 在职教职员工：每人限借 30 册图书。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "3. 图书借还与流通规则",
+            "preview": "务号在线续借 1 次，续借期限为 30 天（最长可连续持有 60 天）。遇到全校资产清查等特殊情况，图书馆有权随时催还图书。\n3. 不可外借文献：各阅览区内的样本书、大型工具书、中文核心现刊报纸、古籍特藏文献仅供在馆内阅览复印，概不外借。\n4. 逾期处理与滞还金：\n   - 为保障校园图书资源的正常流通，请读者按期归还图书；\n   - 超过规定借期归还的图书",
+            "full_text": "务号在线续借 1 次，续借期限为 30 天（最长可连续持有 60 天）。遇到全校资产清查等特殊情况，图书馆有权随时催还图书。\n3. 不可外借文献：各阅览区内的样本书、大型工具书、中文核心现刊报纸、古籍特藏文献仅供在馆内阅览复印，概不外借。\n4. 逾期处理与滞还金：\n   - 为保障校园图书资源的正常流通，请读者按期归还图书；\n   - 超过规定借期归还的图书，系统将按照每册每天 0.1 元的标准收取图书逾期滞还金，并在结清前暂停借书权限。",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "全日制在校本专科学生：每人限借 10 册图书；\n在职教职员工：每人限借 30 册图书。",
+            "section_id": "library:3"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "全日制在校本专科学生：每人限借 10 册图书；",
+            "score": 0.64
+          },
+          {
+            "citation_index": 1,
+            "text": "在职教职员工：每人限借 30 册图书。",
+            "score": 0.64
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "10册"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 165.56029999628663
+      },
+      {
+        "id": "composite_07",
+        "question": "图书馆老师一次最多能借多少本？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 在职教职员工：每人限借 30 册图书。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "3. 图书借还与流通规则",
+            "preview": "3. 图书借还与流通规则\n1. 借书权限与额度：\n   - 全日制在校本专科学生：每人限借 10 册图书；\n   - 在职教职员工：每人限借 30 册图书。\n2. 借阅期限与续借规则：\n   - 借阅期限：普通图书借期为 30 天（教职工 60 天）；\n   - 续借规定：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号在线续借 1 ",
+            "full_text": "3. 图书借还与流通规则\n1. 借书权限与额度：\n   - 全日制在校本专科学生：每人限借 10 册图书；\n   - 在职教职员工：每人限借 30 册图书。\n2. 借阅期限与续借规则：\n   - 借阅期限：普通图书借期为 30 天（教职工 60 天）；\n   - 续借规定：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号在线续借 1 次，续借期限为 30 天（最长可连续持有 60 天）。",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "在职教职员工：每人限借 30 册图书。",
+            "section_id": "library:3"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "在职教职员工：每人限借 30 册图书。",
+            "score": 0.6829
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "30册"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 157.0260999724269
+      },
+      {
+        "id": "composite_08",
+        "question": "图书馆位于哪里以及本科生借阅上限是多少？",
+        "history": [],
+        "answer": "🎯【核心解答】\n\n**图书馆位于哪里**\n• 晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式： [1]\n\n**图书馆，本科生借阅上限是多少**\n• 全日制在校本专科学生：每人限借 10 册图书； [2]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "1. 馆藏布局与功能导览",
+            "preview": "1. 馆藏布局与功能导览\n晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：\n- 1 楼（总服务台与密集书库）：设有图书馆总服务台、还书处、自助借还书终端机、密集书库、学术报告厅及智能门禁通行闸机；",
+            "full_text": "1. 馆藏布局与功能导览\n晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：\n- 1 楼（总服务台与密集书库）：设有图书馆总服务台、还书处、自助借还书终端机、密集书库、学术报告厅及智能门禁通行闸机；",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：",
+            "section_id": "library:1"
+          },
+          {
+            "index": 2,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "3. 图书借还与流通规则",
+            "preview": "3. 图书借还与流通规则\n1. 借书权限与额度：\n   - 全日制在校本专科学生：每人限借 10 册图书；\n   - 在职教职员工：每人限借 30 册图书。\n2. 借阅期限与续借规则：\n   - 借阅期限：普通图书借期为 30 天（教职工 60 天）；\n   - 续借规定：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号在线续借 1 ",
+            "full_text": "3. 图书借还与流通规则\n1. 借书权限与额度：\n   - 全日制在校本专科学生：每人限借 10 册图书；\n   - 在职教职员工：每人限借 30 册图书。\n2. 借阅期限与续借规则：\n   - 借阅期限：普通图书借期为 30 天（教职工 60 天）；\n   - 续借规定：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号在线续借 1 次，续借期限为 30 天（最长可连续持有 60 天）。",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "全日制在校本专科学生：每人限借 10 册图书；",
+            "section_id": "library:3"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：",
+            "score": 1.0733,
+            "subquestion_index": 0
+          },
+          {
+            "citation_index": 2,
+            "text": "全日制在校本专科学生：每人限借 10 册图书；",
+            "score": 0.6233,
+            "subquestion_index": 1
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [
+          {
+            "question": "图书馆位于哪里",
+            "label": "图书馆位于哪里",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "location",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式： [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          },
+          {
+            "question": "图书馆，本科生借阅上限是多少",
+            "label": "图书馆，本科生借阅上限是多少",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "quota",
+              "conditions": {
+                "role": "本科生"
+              }
+            },
+            "answer": "🎯【核心解答】\n• 全日制在校本专科学生：每人限借 10 册图书； [2]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              2
+            ]
+          }
+        ],
+        "subanswer_coverage": 1.0,
+        "expected_clarification": false,
+        "expected_facts": [
+          "惜缘湖",
+          "10册"
+        ],
+        "expected_sources": [],
+        "expected_source_alternatives": [
+          "campus_landmarks",
+          "library"
+        ],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 304.17539994232357
+      },
+      {
+        "id": "composite_09",
+        "question": "图书馆在哪里？业务电话是多少？",
+        "history": [],
+        "answer": "🎯【核心解答】\n\n**图书馆在哪里**\n• 晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式： [1]\n\n**图书馆，业务电话是多少**\n• 业务咨询服务电话：027-87934431 [2]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "1. 馆藏布局与功能导览",
+            "preview": "1. 馆藏布局与功能导览\n晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：\n- 1 楼（总服务台与密集书库）：设有图书馆总服务台、还书处、自助借还书终端机、密集书库、学术报告厅及智能门禁通行闸机；",
+            "full_text": "1. 馆藏布局与功能导览\n晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：\n- 1 楼（总服务台与密集书库）：设有图书馆总服务台、还书处、自助借还书终端机、密集书库、学术报告厅及智能门禁通行闸机；",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：",
+            "section_id": "library:1"
+          },
+          {
+            "index": 2,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "4. 图书损坏、遗失赔偿与考研席位守则",
+            "preview": "开座位超过 60 分钟视为离座弃用；严禁私拉接线板、使用大功率热得快等违规电器。\n- 业务咨询服务电话：027-87934431",
+            "full_text": "开座位超过 60 分钟视为离座弃用；严禁私拉接线板、使用大功率热得快等违规电器。\n- 业务咨询服务电话：027-87934431",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "业务咨询服务电话：027-87934431",
+            "section_id": "library:4"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：",
+            "score": 1.14,
+            "subquestion_index": 0
+          },
+          {
+            "citation_index": 2,
+            "text": "业务咨询服务电话：027-87934431",
+            "score": 0.8733,
+            "subquestion_index": 1
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [
+          {
+            "question": "图书馆在哪里",
+            "label": "图书馆在哪里",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "location",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式： [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          },
+          {
+            "question": "图书馆，业务电话是多少",
+            "label": "图书馆，业务电话是多少",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "contact",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 业务咨询服务电话：027-87934431 [2]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              2
+            ]
+          }
+        ],
+        "subanswer_coverage": 1.0,
+        "expected_clarification": false,
+        "expected_facts": [
+          "惜缘湖",
+          "027-87934431"
+        ],
+        "expected_sources": [],
+        "expected_source_alternatives": [
+          "campus_landmarks",
+          "library",
+          "office_contacts"
+        ],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 311.3628999562934
+      },
+      {
+        "id": "composite_10",
+        "question": "奖学金一等奖多少钱，二等奖呢？",
+        "history": [],
+        "answer": "🎯【核心解答】\n\n**奖学金一等奖多少钱**\n• 晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名； [1]\n\n**奖学金，二等奖呢，金额多少钱**\n• 晴川奖学金二等奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名； [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "（一）校级晴川奖学金",
+            "preview": "（一）校级晴川奖学金\n晴川奖学金是学校面向优秀在读学生设立的最高规格校级荣誉奖项，旨在激励晴川学子立大志、成大才、争创一流。评审对象为全日制本专科大二及以上年级的优秀在读学生（专升本学生自就读本科第二年起具备申请资格）：\n- 晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名；\n- 晴川奖学金二等奖（乙等）：奖励金额为每人每学年",
+            "full_text": "（一）校级晴川奖学金\n晴川奖学金是学校面向优秀在读学生设立的最高规格校级荣誉奖项，旨在激励晴川学子立大志、成大才、争创一流。评审对象为全日制本专科大二及以上年级的优秀在读学生（专升本学生自就读本科第二年起具备申请资格）：\n- 晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名；\n- 晴川奖学金二等奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名；\n奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名；\n- 晴川奖学金三等奖（丙等）：奖励金额为每人每学年 1000 元，全校评选 630 名。",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名；\n晴川奖学金二等奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名；",
+            "section_id": "scholarship:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名；",
+            "score": 1.365,
+            "subquestion_index": 0
+          },
+          {
+            "citation_index": 1,
+            "text": "晴川奖学金二等奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名；",
+            "score": 1.2855,
+            "subquestion_index": 1
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [
+          {
+            "question": "奖学金一等奖多少钱",
+            "label": "奖学金一等奖多少钱",
+            "slots": {
+              "subject": [
+                "奖学金"
+              ],
+              "attribute": "amount",
+              "conditions": {
+                "grade": [
+                  "一等奖"
+                ]
+              }
+            },
+            "answer": "🎯【核心解答】\n• 晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名； [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          },
+          {
+            "question": "奖学金，二等奖呢，金额多少钱",
+            "label": "奖学金，二等奖呢，金额多少钱",
+            "slots": {
+              "subject": [
+                "奖学金"
+              ],
+              "attribute": "amount",
+              "conditions": {
+                "grade": [
+                  "二等奖"
+                ]
+              }
+            },
+            "answer": "🎯【核心解答】\n• 晴川奖学金二等奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名； [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          }
+        ],
+        "subanswer_coverage": 1.0,
+        "expected_clarification": false,
+        "expected_facts": [
+          "3000元",
+          "2000元"
+        ],
+        "expected_sources": [
+          "scholarship"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 356.40589997638017
+      },
+      {
+        "id": "composite_11",
+        "question": "图书馆几点闭馆，馆长手机号是多少？",
+        "history": [],
+        "answer": "🎯【核心解答】\n\n**图书馆几点闭馆**\n• 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。 [1]\n\n**图书馆，馆长手机号是多少**\n现有知识库没有找到能直接回答这个问题的明确依据。请补充具体事项，或向相关部门核实。",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "2. 图书馆开放时间表",
+            "preview": "2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- 考研专属自习室：每日开放时间为 07:30 — 22:00，严禁使用私",
+            "full_text": "2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- 考研专属自习室：每日开放时间为 07:30 — 22:00，严禁使用私人物品长期霸占无主座位；",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+            "section_id": "library:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+            "score": 1.49,
+            "subquestion_index": 0
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": true,
+        "expected_partial": true,
+        "sub_answers": [
+          {
+            "question": "图书馆几点闭馆",
+            "label": "图书馆几点闭馆",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "time",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。 [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          },
+          {
+            "question": "图书馆，馆长手机号是多少",
+            "label": "图书馆，馆长手机号是多少",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "general",
+              "conditions": {}
+            },
+            "answer": "现有知识库没有找到能直接回答这个问题的明确依据。请补充具体事项，或向相关部门核实。",
+            "refused": true,
+            "clarification": false,
+            "citation_indices": []
+          }
+        ],
+        "subanswer_coverage": 1.0,
+        "expected_clarification": false,
+        "expected_facts": [
+          "22:00"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 310.9067000914365
+      },
+      {
+        "id": "composite_12",
+        "question": "图书馆可以借几本，研究生能借多少册？",
+        "history": [],
+        "answer": "🎯【核心解答】\n\n**图书馆可以借多少册**\n• 全日制在校本专科学生：每人限借 10 册图书； [1]\n• 在职教职员工：每人限借 30 册图书。 [1]\n\n**图书馆，研究生能借多少册**\n现有知识库没有找到能直接回答这个问题的明确依据。请补充具体事项，或向相关部门核实。",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "3. 图书借还与流通规则",
+            "preview": "3. 图书借还与流通规则\n1. 借书权限与额度：\n   - 全日制在校本专科学生：每人限借 10 册图书；\n   - 在职教职员工：每人限借 30 册图书。\n2. 借阅期限与续借规则：\n   - 借阅期限：普通图书借期为 30 天（教职工 60 天）；\n   - 续借规定：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号在线续借 1 ",
+            "full_text": "3. 图书借还与流通规则\n1. 借书权限与额度：\n   - 全日制在校本专科学生：每人限借 10 册图书；\n   - 在职教职员工：每人限借 30 册图书。\n2. 借阅期限与续借规则：\n   - 借阅期限：普通图书借期为 30 天（教职工 60 天）；\n   - 续借规定：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号在线续借 1 次，续借期限为 30 天（最长可连续持有 60 天）。",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "全日制在校本专科学生：每人限借 10 册图书；\n在职教职员工：每人限借 30 册图书。",
+            "section_id": "library:3"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "全日制在校本专科学生：每人限借 10 册图书；",
+            "score": 0.665,
+            "subquestion_index": 0
+          },
+          {
+            "citation_index": 1,
+            "text": "在职教职员工：每人限借 30 册图书。",
+            "score": 0.665,
+            "subquestion_index": 0
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": true,
+        "expected_partial": true,
+        "sub_answers": [
+          {
+            "question": "图书馆可以借多少册",
+            "label": "图书馆可以借多少册",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "quota",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 全日制在校本专科学生：每人限借 10 册图书； [1]\n• 在职教职员工：每人限借 30 册图书。 [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          },
+          {
+            "question": "图书馆，研究生能借多少册",
+            "label": "图书馆，研究生能借多少册",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "quota",
+              "conditions": {
+                "role": "研究生"
+              }
+            },
+            "answer": "现有知识库没有找到能直接回答这个问题的明确依据。请补充具体事项，或向相关部门核实。",
+            "refused": true,
+            "clarification": false,
+            "citation_indices": []
+          }
+        ],
+        "subanswer_coverage": 1.0,
+        "expected_clarification": false,
+        "expected_facts": [
+          "10册"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 321.0484000155702
+      }
+    ]
+  }
+}

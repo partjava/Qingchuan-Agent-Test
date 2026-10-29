@@ -1,0 +1,10 @@
+# 武汉晴川学院 NLP 期末大作业依赖环境配置
+fastapi>=0.100.0
+uvicorn>=0.20.0
+pydantic>=2.0.0
+torch>=2.0.0
+transformers>=4.30.0
+scikit-learn>=1.2.0
+numpy>=1.24.0
+requests>=2.28.0
+beautifulsoup4>=4.11.0

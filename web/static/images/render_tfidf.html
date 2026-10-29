@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>TF-IDF 算法流程图</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1400px;
+    height: 880px;
+    background: #eef5fc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    color: #1e293b;
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* 顶部 Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+  .title-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .main-title {
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: 54px;
+    font-weight: 900;
+    color: #163866;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .title-badge {
+    background: #245a9e;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+  }
+  .desc-box {
+    max-width: 480px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #334155;
+    background: #ffffff;
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 1px solid #dbeafe;
+    box-shadow: 0 2px 6px rgba(36, 90, 158, 0.04);
+  }
+  
+  /* 核心公式卡片 */
+  .formula-card {
+    background: #ffffff;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    padding: 14px 22px;
+    box-shadow: 0 2px 8px rgba(36, 90, 158, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    min-width: 470px;
+  }
+  .formula-badge {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: #205493;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 4px;
+  }
+  .main-math {
+    font-family: 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .sub-math-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Times New Roman', serif;
+    font-size: 13.5px;
+    color: #1e293b;
+    gap: 16px;
+  }
+  .frac {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 11px;
+    font-family: 'PingFang SC', sans-serif;
+  }
+  .frac-top { border-bottom: 1px solid #475569; padding-bottom: 2px; }
+  .frac-bot { padding-top: 2px; }
+
+  /* 主区域 1：构建流程 */
+  .pipeline-row {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #d8e5f3;
+    box-shadow: 0 4px 14px rgba(22, 56, 102, 0.05);
+    padding: 18px 20px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 8px;
+    position: relative;
+    margin-bottom: 18px;
+  }
+  .step-card {
+    flex: 1;
+    background: #f8fbfe;
+    border: 1px solid #e2ecf6;
+    border-radius: 10px;
+    padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .step-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #1d4ed8;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .step-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .step-desc {
+    font-size: 11px;
+    color: #64748b;
+    margin-bottom: 8px;
+    min-height: 24px;
+  }
+  .step-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* 箭头 */
+  .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #60a5fa;
+    font-size: 20px;
+    font-weight: 900;
+    user-select: none;
+  }
+
+  /* 文档集合小卡片 */
+  .doc-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 5px 8px;
+    margin-bottom: 6px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .doc-tag { font-weight: 800; color: #2563eb; }
+  .doc-txt { color: #475569; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+  /* 分词结果标签行 */
+  .split-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 7px;
+    font-size: 11px;
+  }
+  .split-tag {
+    font-weight: 800;
+    color: #2563eb;
+    width: 20px;
+  }
+  .token-chip {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    font-weight: 600;
+  }
+  .chip-blue { background: #dbeafe; color: #1e40af; }
+  .chip-green { background: #dcfce7; color: #166534; }
+  .chip-orange { background: #ffedd5; color: #9a3412; }
+
+  /* 小型表格 */
+  .mini-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.5px;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+  }
+  .mini-table th {
+    padding: 4px 2px;
+    font-weight: 700;
+    background: #f1f5f9;
+    color: #334155;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .mini-table td {
+    padding: 3px 2px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #475569;
+    font-family: 'Fira Code', 'Segoe UI Mono', monospace;
+  }
+  .th-blue { background: #e0f2fe !important; color: #0369a1 !important; }
+  .th-green { background: #dcfce7 !important; color: #15803d !important; }
+  .th-orange { background: #ffedd5 !important; color: #c2410c !important; }
+
+  /* 向量表示代码块 */
+  .vec-box {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-family: 'Fira Code', 'Segoe UI Mono', monospace;
+    font-size: 11.5px;
+    color: #1e293b;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* 主区域 2：查询检索流程 */
+  .search-row {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #d8e5f3;
+    box-shadow: 0 4px 14px rgba(22, 56, 102, 0.05);
+    padding: 22px 24px;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  .search-banner {
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: #1b3d68;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 3px 16px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(27, 61, 104, 0.25);
+  }
+  .search-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .search-step-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+  }
+
+  /* 搜索框 */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: #f8fafc;
+    border: 1.5px solid #94a3b8;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    gap: 8px;
+  }
+  .search-btn {
+    background: #2563eb;
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+
+  /* 查询向量条 */
+  .q-vec-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Fira Code', 'Segoe UI Mono', monospace;
+    font-size: 12px;
+    background: #f8fafc;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+  }
+  .q-cell {
+    background: #fed7aa;
+    color: #9a3412;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-weight: 700;
+  }
+
+  /* 相似度计算公式大卡片 */
+  .sim-formula-box {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0f172a;
+  }
+
+  /* 最终排序结果表格 */
+  .rank-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #cbd5e1;
+    text-align: center;
+  }
+  .rank-table th {
+    background: #0284c7;
+    color: #ffffff;
+    padding: 6px 4px;
+    font-weight: 700;
+  }
+  .rank-table td {
+    padding: 6px 4px;
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: 600;
+  }
+  .rank-table tr:nth-child(1) td {
+    background: #fef08a;
+    color: #854d0e;
+    font-weight: 800;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 顶部 Header -->
+  <div class="header">
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <div class="title-group">
+        <div class="main-title">TF-IDF</div>
+        <div class="title-badge">算法流程图</div>
+      </div>
+      <div class="desc-box">
+        TF-IDF 是一种基于词频统计的文本表示方法，通过计算词语在文档中的重要性，将文本表示为高维稀疏向量，用于文本检索。
+      </div>
+    </div>
+
+    <!-- 核心公式 -->
+    <div class="formula-card">
+      <div class="formula-badge">核心公式</div>
+      <div class="main-math">TF-IDF(t, d) = TF(t, d) × IDF(t)</div>
+      <div class="sub-math-row">
+        <div>
+          TF(t, d) = <span class="frac"><span class="frac-top">词 t 在文档 d 中的出现次数</span><span class="frac-bot">文档 d 的总词数</span></span>
+        </div>
+        <div>
+          IDF(t) = log <span class="frac"><span class="frac-top">总文档数 N</span><span class="frac-bot">包含词 t 的文档数 n<sub>t</sub></span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主流程 1：特征构建与文档表示 (步骤 1~6) -->
+  <div class="pipeline-row">
+    
+    <!-- Step 1 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div class="step-title">文档集合</div>
+      </div>
+      <div class="step-desc">收集并预处理文本数据</div>
+      <div class="step-body">
+        <div class="doc-item"><span class="doc-tag">d₁</span><span class="doc-txt">C++ 是一种高效语言...</span></div>
+        <div class="doc-item"><span class="doc-tag">d₂</span><span class="doc-txt">STL 提供了容器方法...</span></div>
+        <div class="doc-item"><span class="doc-tag">d₃</span><span class="doc-txt">内存分配与释放机制...</span></div>
+        <div style="text-align:center; color:#94a3b8; font-size:10px;">...</div>
+      </div>
+    </div>
+
+    <div class="arrow">➔</div>
+
+    <!-- Step 2 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div class="step-title">文本切分</div>
+      </div>
+      <div class="step-desc">分词、去停用词、词形处理</div>
+      <div class="step-body">
+        <div class="split-row"><span class="split-tag">d₁</span><span class="token-chip chip-blue">C++</span><span class="token-chip chip-blue">语言</span><span class="token-chip chip-blue">基础</span></div>
+        <div class="split-row"><span class="split-tag">d₂</span><span class="token-chip chip-green">STL</span><span class="token-chip chip-green">容器</span><span class="token-chip chip-green">使用</span></div>
+        <div class="split-row"><span class="split-tag">d₃</span><span class="token-chip chip-orange">内存</span><span class="token-chip chip-orange">分配</span><span class="token-chip chip-orange">方法</span></div>
+        <div style="text-align:center; color:#94a3b8; font-size:10px;">...</div>
+      </div>
+    </div>
+
+    <div class="arrow">➔</div>
+
+    <!-- Step 3 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div class="step-title">统计词频 (TF)</div>
+      </div>
+      <div class="step-desc">计算词语在各文档中出现频率</div>
+      <div class="step-body">
+        <table class="mini-table">
+          <tr><th class="th-blue">词项</th><th class="th-blue">d₁</th><th class="th-blue">d₂</th><th class="th-blue">d₃</th></tr>
+          <tr><td>C++</td><td>0.20</td><td>0</td><td>0</td></tr>
+          <tr><td>内存</td><td>0</td><td>0</td><td>0.15</td></tr>
+          <tr><td>分配</td><td>0</td><td>0</td><td>0.10</td></tr>
+          <tr><td>STL</td><td>0</td><td>0.18</td><td>0</td></tr>
+          <tr><td>容器</td><td>0</td><td>0.12</td><td>0</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="arrow">➔</div>
+
+    <!-- Step 4 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div class="step-title">计算逆文档频率 (IDF)</div>
+      </div>
+      <div class="step-desc">按稀有程度赋予词项权重</div>
+      <div class="step-body">
+        <table class="mini-table">
+          <tr><th class="th-green">词项</th><th class="th-green">频次 n<sub>t</sub></th><th class="th-green">IDF</th></tr>
+          <tr><td>C++</td><td>1</td><td>1.10</td></tr>
+          <tr><td>内存</td><td>1</td><td>1.10</td></tr>
+          <tr><td>分配</td><td>1</td><td>1.10</td></tr>
+          <tr><td>STL</td><td>1</td><td>1.10</td></tr>
+          <tr><td>容器</td><td>1</td><td>1.10</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="arrow">➔</div>
+
+    <!-- Step 5 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">5</div>
+        <div class="step-title">计算 TF-IDF 权重</div>
+      </div>
+      <div class="step-desc">TF 与 IDF 相乘得最终权重</div>
+      <div class="step-body">
+        <table class="mini-table">
+          <tr><th class="th-orange">词项</th><th class="th-orange">d₁</th><th class="th-orange">d₂</th><th class="th-orange">d₃</th></tr>
+          <tr><td>C++</td><td>0.22</td><td>0</td><td>0</td></tr>
+          <tr><td>内存</td><td>0</td><td>0</td><td>0.17</td></tr>
+          <tr><td>分配</td><td>0</td><td>0</td><td>0.11</td></tr>
+          <tr><td>STL</td><td>0</td><td>0.20</td><td>0</td></tr>
+          <tr><td>容器</td><td>0</td><td>0.13</td><td>0</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="arrow">➔</div>
+
+    <!-- Step 6 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">6</div>
+        <div class="step-title">构建向量表示</div>
+      </div>
+      <div class="step-desc">文档转化为高维稀疏向量</div>
+      <div class="step-body">
+        <div class="vec-box">
+          <div>d₁ = [0.22, 0, 0, ...]</div>
+          <div>d₂ = [0, 0.20, 0.13, ...]</div>
+          <div>d₃ = [0, 0.17, 0.11, ...]</div>
+          <div style="text-align:center; color:#94a3b8;">...</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 主流程 2：查询检索流程 (步骤 1~5) -->
+  <div class="search-row">
+    <div class="search-banner">查询检索流程</div>
+
+    <!-- S1 -->
+    <div class="search-step">
+      <div class="search-step-title"><div class="step-num">1</div>用户输入查询</div>
+      <div class="search-bar">
+        <span>C++ 内存分配</span>
+        <span class="search-btn">🔍</span>
+      </div>
+    </div>
+
+    <div class="arrow">➔</div>
+
+    <!-- S2 -->
+    <div class="search-step">
+      <div class="search-step-title"><div class="step-num">2</div>查询预处理</div>
+      <div style="display:flex; gap:6px;">
+        <span class="token-chip chip-blue" style="font-size:12px; padding:4px 8px;">C++</span>
+        <span class="token-chip chip-orange" style="font-size:12px; padding:4px 8px;">内存</span>
+        <span class="token-chip chip-orange" style="font-size:12px; padding:4px 8px;">分配</span>
+      </div>
+    </div>
+
+    <div class="arrow">➔</div>
+
+    <!-- S3 -->
+    <div class="search-step" style="flex:1.4;">
+      <div class="search-step-title"><div class="step-num">3</div>计算查询向量</div>
+      <div style="font-size:11px; color:#64748b; margin-bottom:6px;">对查询文本计算 TF-IDF 向量 (使用相同 IDF)</div>
+      <div class="q-vec-bar">
+        <span>q = [</span>
+        <span class="q-cell">0.18</span>
+        <span class="q-cell">0.21</span>
+        <span class="q-cell">0.16</span>
+        <span>0</span>
+        <span>0</span>
+        <span>... ]</span>
+      </div>
+    </div>
+
+    <div class="arrow">➔</div>
+
+    <!-- S4 -->
+    <div class="search-step" style="flex:1.2;">
+      <div class="search-step-title"><div class="step-num">4</div>计算相似度</div>
+      <div style="font-size:11px; color:#64748b; margin-bottom:6px;">使用余弦相似度计算与各文档夹角</div>
+      <div class="sim-formula-box">
+        cos(θ) = <span class="frac" style="font-size:14px; font-family:'Times New Roman',serif;"><span class="frac-top">q · d</span><span class="frac-bot">||q|| ||d||</span></span>
+      </div>
+    </div>
+
+    <div class="arrow">➔</div>
+
+    <!-- S5 -->
+    <div class="search-step" style="flex:1.1;">
+      <div class="search-step-title"><div class="step-num">5</div>返回排序结果</div>
+      <table class="rank-table">
+        <tr><th>排名</th><th>文档</th><th>相似度</th></tr>
+        <tr><td>1</td><td>d₃</td><td>0.782</td></tr>
+        <tr><td>2</td><td>d₁</td><td>0.621</td></tr>
+        <tr><td>3</td><td>d₂</td><td>0.318</td></tr>
+      </table>
+    </div>
+
+  </div>
+
+</body>
+</html>

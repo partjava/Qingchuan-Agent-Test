@@ -1,0 +1,1991 @@
+{
+  "hybrid": {
+    "mode": "hybrid",
+    "total_cases": 43,
+    "answerable_count": 33,
+    "unknown_count": 7,
+    "clarification_count": 3,
+    "passed_count": 43,
+    "expected_answer_accuracy": 1.0,
+    "unknown_refusal_accuracy": 1.0,
+    "clarification_accuracy": 1.0,
+    "metric_definitions": {
+      "expected_answer_accuracy": "All lexical reference facts and linked evidence/source/citation checks pass. Source coverage only checks document identifiers; citation checks validate linkage and numeric literals, not full claim entailment or semantic correctness.",
+      "unknown_refusal_accuracy": "Expected unknown cases with correct refusal and clarification decisions / unknown count.",
+      "numeric_claim_support": "All numeric literals occur in the evidence of their inline citation; not full entailment.",
+      "source_coverage": "All expected_sources are required, plus at least one expected_source_alternatives when supplied. Identifiers are normalized to filename stems; this checks identifier coverage, not full source correctness.",
+      "zero_denominator": "Reported as 0.0; counts distinguish absent categories."
+    },
+    "cases": [
+      {
+        "id": "answer_01",
+        "question": "图书馆每天几点开门和闭馆？",
+        "history": [],
+        "answer": "🎯【核心解答】\n\n**图书馆每天几点开放**\n• 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。 [1]\n\n**图书馆，闭馆**\n• 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "2. 图书馆开放时间表",
+            "preview": "2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- 考研专属自习室：每日开放时间为 07:30 — 22:00，严禁使用私",
+            "full_text": "## 2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- **开闭馆时间**：周一至周日 **07:30 — 22:00 全天开放**（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- **考研专属自习室**：每日开放时间为 **07:30 — 22:00**，严禁使用私人物品长期霸占无主座位；",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+            "images": [],
+            "section_id": "library:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+            "score": 1.365,
+            "subquestion_index": 0
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [
+          {
+            "question": "图书馆每天几点开放",
+            "label": "图书馆每天几点开放",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "time",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。 [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          },
+          {
+            "question": "图书馆，闭馆",
+            "label": "图书馆，闭馆",
+            "slots": {
+              "subject": [
+                "图书馆"
+              ],
+              "attribute": "time",
+              "conditions": {}
+            },
+            "answer": "🎯【核心解答】\n• 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。 [1]",
+            "refused": false,
+            "clarification": false,
+            "citation_indices": [
+              1
+            ]
+          }
+        ],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "07:30",
+          "22:00"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 617.4485000083223
+      },
+      {
+        "id": "answer_02",
+        "question": "图书管晚上几点关门？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "2. 图书馆开放时间表",
+            "preview": "2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- 考研专属自习室：每日开放时间为 07:30 — 22:00，严禁使用私",
+            "full_text": "## 2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- **开闭馆时间**：周一至周日 **07:30 — 22:00 全天开放**（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- **考研专属自习室**：每日开放时间为 **07:30 — 22:00**，严禁使用私人物品长期霸占无主座位；",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+            "images": [],
+            "section_id": "library:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+            "score": 1.24
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "22:00"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 170.94330000691116
+      },
+      {
+        "id": "answer_03",
+        "question": "那周末呢？",
+        "history": [
+          {
+            "role": "user",
+            "content": "图书馆几点开放？"
+          }
+        ],
+        "answer": "🎯【核心解答】\n• 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "2. 图书馆开放时间表",
+            "preview": "2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- 考研专属自习室：每日开放时间为 07:30 — 22:00，严禁使用私",
+            "full_text": "## 2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- **开闭馆时间**：周一至周日 **07:30 — 22:00 全天开放**（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- **考研专属自习室**：每日开放时间为 **07:30 — 22:00**，严禁使用私人物品长期霸占无主座位；",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+            "images": [],
+            "section_id": "library:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+            "score": 1.39
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "07:30",
+          "22:00"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 200.349299935624
+      },
+      {
+        "id": "answer_04",
+        "question": "工作日晚上借还书最晚到几点？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "2. 图书馆开放时间表",
+            "preview": "2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- 考研专属自习室：每日开放时间为 07:30 — 22:00，严禁使用私",
+            "full_text": "## 2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- **开闭馆时间**：周一至周日 **07:30 — 22:00 全天开放**（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- **考研专属自习室**：每日开放时间为 **07:30 — 22:00**，严禁使用私人物品长期霸占无主座位；",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+            "images": [],
+            "section_id": "library:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。",
+            "score": 0.92
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "21:30"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 151.03730000555515
+      },
+      {
+        "id": "answer_05",
+        "question": "那借书能借多久？",
+        "history": [
+          {
+            "role": "user",
+            "content": "图书馆周末开门吗？"
+          }
+        ],
+        "answer": "🎯【核心解答】\n• 借阅期限：普通图书借期为 30 天（教职工 60 天）； [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "3. 图书借还与流通规则",
+            "preview": "3. 图书借还与流通规则\n1. 借书权限与额度：\n   - 全日制在校本专科学生：每人限借 10 册图书；\n   - 在职教职员工：每人限借 30 册图书。\n2. 借阅期限与续借规则：\n   - 借阅期限：普通图书借期为 30 天（教职工 60 天）；\n   - 续借规定：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号在线续借 1 ",
+            "full_text": "## 3. 图书借还与流通规则\n1. **借书权限与额度**：\n   - 全日制在校本专科学生：**每人限借 10 册图书**；\n   - 在职教职员工：每人限借 30 册图书。\n2. **借阅期限与续借规则**：\n   - **借阅期限**：普通图书借期为 **30 天**（教职工 60 天）；\n   - **续借规定**：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号**在线续借 1 次，续借期限为 30 天**（最长可连续持有 60 天）。",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "借阅期限：普通图书借期为 30 天（教职工 60 天）；",
+            "images": [],
+            "section_id": "library:3"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "借阅期限：普通图书借期为 30 天（教职工 60 天）；",
+            "score": 0.665
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "30天"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 162.99069998785853
+      },
+      {
+        "id": "answer_06",
+        "question": "那逾期收费是多少？",
+        "history": [
+          {
+            "role": "user",
+            "content": "图书馆借书能借多久？"
+          }
+        ],
+        "answer": "🎯【核心解答】\n• 超过规定借期归还的图书，系统将按照每册每天 0.1 元的标准收取图书逾期滞还金，并在结清前暂停借书权限。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "3. 图书借还与流通规则",
+            "preview": "每册每天 0.1 元的标准收取图书逾期滞还金，并在结清前暂停借书权限。",
+            "full_text": "*每册每天 0.1 元**的标准收取图书逾期滞还金，并在结清前暂停借书权限。\n\n---",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "超过规定借期归还的图书，系统将按照每册每天 0.1 元的标准收取图书逾期滞还金，并在结清前暂停借书权限。",
+            "images": [],
+            "section_id": "library:3"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "超过规定借期归还的图书，系统将按照每册每天 0.1 元的标准收取图书逾期滞还金，并在结清前暂停借书权限。",
+            "score": 0.7622
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "0.1元"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 156.76010004244745
+      },
+      {
+        "id": "answer_07",
+        "question": "本科生在图书馆最多借几本？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 全日制在校本专科学生：每人限借 10 册图书； [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "3. 图书借还与流通规则",
+            "preview": "3. 图书借还与流通规则\n1. 借书权限与额度：\n   - 全日制在校本专科学生：每人限借 10 册图书；\n   - 在职教职员工：每人限借 30 册图书。\n2. 借阅期限与续借规则：\n   - 借阅期限：普通图书借期为 30 天（教职工 60 天）；\n   - 续借规定：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号在线续借 1 ",
+            "full_text": "## 3. 图书借还与流通规则\n1. **借书权限与额度**：\n   - 全日制在校本专科学生：**每人限借 10 册图书**；\n   - 在职教职员工：每人限借 30 册图书。\n2. **借阅期限与续借规则**：\n   - **借阅期限**：普通图书借期为 **30 天**（教职工 60 天）；\n   - **续借规定**：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号**在线续借 1 次，续借期限为 30 天**（最长可连续持有 60 天）。",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "全日制在校本专科学生：每人限借 10 册图书；",
+            "images": [],
+            "section_id": "library:3"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "全日制在校本专科学生：每人限借 10 册图书；",
+            "score": 0.6233
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "10册"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 162.22150006797165
+      },
+      {
+        "id": "answer_08",
+        "question": "图书馆教职工可以借几本？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 在职教职员工：每人限借 30 册图书。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "3. 图书借还与流通规则",
+            "preview": "3. 图书借还与流通规则\n1. 借书权限与额度：\n   - 全日制在校本专科学生：每人限借 10 册图书；\n   - 在职教职员工：每人限借 30 册图书。\n2. 借阅期限与续借规则：\n   - 借阅期限：普通图书借期为 30 天（教职工 60 天）；\n   - 续借规定：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号在线续借 1 ",
+            "full_text": "## 3. 图书借还与流通规则\n1. **借书权限与额度**：\n   - 全日制在校本专科学生：**每人限借 10 册图书**；\n   - 在职教职员工：每人限借 30 册图书。\n2. **借阅期限与续借规则**：\n   - **借阅期限**：普通图书借期为 **30 天**（教职工 60 天）；\n   - **续借规定**：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号**在线续借 1 次，续借期限为 30 天**（最长可连续持有 60 天）。",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "在职教职员工：每人限借 30 册图书。",
+            "images": [],
+            "section_id": "library:3"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "在职教职员工：每人限借 30 册图书。",
+            "score": 0.7218
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "30册"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 188.8806999195367
+      },
+      {
+        "id": "answer_09",
+        "question": "图书馆续借几次？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 续借规定：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号在线续借 1 次，续借期限为 30 天（最长可连续持有 60 天）。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "3. 图书借还与流通规则",
+            "preview": "务号在线续借 1 次，续借期限为 30 天（最长可连续持有 60 天）。遇到全校资产清查等特殊情况，图书馆有权随时催还图书。\n3. 不可外借文献：各阅览区内的样本书、大型工具书、中文核心现刊报纸、古籍特藏文献仅供在馆内阅览复印，概不外借。\n4. 逾期处理与滞还金：\n   - 为保障校园图书资源的正常流通，请读者按期归还图书；\n   - 超过规定借期归还的图书",
+            "full_text": "务号**在线续借 1 次，续借期限为 30 天**（最长可连续持有 60 天）。遇到全校资产清查等特殊情况，图书馆有权随时催还图书。\n3. **不可外借文献**：各阅览区内的样本书、大型工具书、中文核心现刊报纸、古籍特藏文献仅供在馆内阅览复印，概不外借。\n4. **逾期处理与滞还金**：\n   - 为保障校园图书资源的正常流通，请读者按期归还图书；\n   - 超过规定借期归还的图书，系统将按照**每册每天 0.1 元**的标准收取图书逾期滞还金，并在结清前暂停借书权限。",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "续借规定：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号在线续借 1 次，续借期限为 30 天（最长可连续持有 60 天）。",
+            "images": [],
+            "section_id": "library:3"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "续借规定：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号在线续借 1 次，续借期限为 30 天（最长可连续持有 60 天）。",
+            "score": 1.24
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "1次",
+          "30天"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 205.79250005539507
+      },
+      {
+        "id": "answer_10",
+        "question": "图书馆电子阅览室什么时候开？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 电子阅览机房：周一至周五 08:30 — 21:00，凭校园卡免费上机查阅中国知网（CNKI）、万方、Web of Science 等晴川数字文献资源。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "2. 图书馆开放时间表",
+            "preview": "2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- 开闭馆时间：周一至周日 07:30 — 22:00 全天开放（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- 考研专属自习室：每日开放时间为 07:30 — 22:00，严禁使用私",
+            "full_text": "## 2. 图书馆开放时间表\n全馆书刊均采用全开架阅览方式，师生读者统一凭校园一卡通或电子校园码刷卡入馆：\n- **开闭馆时间**：周一至周日 **07:30 — 22:00 全天开放**（节假日与寒暑假开放安排以图书馆官方公告为准）；工作日 21:30 停止图书借还与前台业务办理，22:00 闭馆清场。\n- **考研专属自习室**：每日开放时间为 **07:30 — 22:00**，严禁使用私人物品长期霸占无主座位；",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "电子阅览机房：周一至周五 08:30 — 21:00，凭校园卡免费上机查阅中国知网（CNKI）、万方、Web of Science 等晴川数字文献资源。",
+            "images": [],
+            "section_id": "library:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "电子阅览机房：周一至周五 08:30 — 21:00，凭校园卡免费上机查阅中国知网（CNKI）、万方、Web of Science 等晴川数字文献资源。",
+            "score": 0.79
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "08:30",
+          "21:00"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 211.25750010833144
+      },
+      {
+        "id": "answer_11",
+        "question": "图书馆咨询电话是多少？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 业务咨询服务电话：027-87934431 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "4. 图书损坏、遗失赔偿与考研席位守则",
+            "preview": "4. 图书损坏、遗失赔偿与考研席位守则\n1. 遗失赔偿：读者遗失图书，须首选购买相同版次（或经图书馆认可的更新版次）的新书予以赔偿，并缴纳 5 元加工费；无法购得同种图书的，按原书价格的 2～5 倍予以现金赔偿。\n2. 考研自习室管理守则：\n   - 考研专座每年秋季面向全校大四考研学生开放集中申请，经审核通过后统一分配固定座位号；\n   - 入座学生须保持",
+            "full_text": "## 4. 图书损坏、遗失赔偿与考研席位守则\n1. **遗失赔偿**：读者遗失图书，须首选购买相同版次（或经图书馆认可的更新版次）的新书予以赔偿，并缴纳 5 元加工费；无法购得同种图书的，按原书价格的 2～5 倍予以现金赔偿。\n2. **考研自习室管理守则**：\n   - 考研专座每年秋季面向全校大四考研学生开放集中申请，经审核通过后统一分配固定座位号；\n   - 入座学生须保持安静，手机静音，离开座位超过 60 分钟视为离座弃用；严禁私拉接线板、使用大功率热得快等违规电器。",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "业务咨询服务电话：027-87934431",
+            "images": [],
+            "section_id": "library:4"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "业务咨询服务电话：027-87934431",
+            "score": 0.7622
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "027-87934431"
+        ],
+        "expected_sources": [],
+        "expected_source_alternatives": [
+          "library",
+          "office_contacts"
+        ],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 163.58410008251667
+      },
+      {
+        "id": "answer_12",
+        "question": "图书馆总共几层？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 1 楼（总服务台与密集书库）：设有图书馆总服务台、还书处、自助借还书终端机、密集书库、学术报告厅及智能门禁通行闸机； [1]\n• 晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式： [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "1. 馆藏布局与功能导览",
+            "preview": "1. 馆藏布局与功能导览\n晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：\n- 1 楼（总服务台与密集书库）：设有图书馆总服务台、还书处、自助借还书终端机、密集书库、学术报告厅及智能门禁通行闸机；",
+            "full_text": "## 1. 馆藏布局与功能导览\n晴川图书馆坐落于惜缘湖畔（地标编号: `library`），建筑总面积逾 2.5 万平方米，**全馆共地上 4 层**，实行“藏、借、阅、查、研”一体化全开架服务模式：\n- **1 楼（总服务台与密集书库）**：设有图书馆总服务台、还书处、自助借还书终端机、密集书库、学术报告厅及智能门禁通行闸机；",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "1 楼（总服务台与密集书库）：设有图书馆总服务台、还书处、自助借还书终端机、密集书库、学术报告厅及智能门禁通行闸机；\n晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：",
+            "images": [],
+            "section_id": "library:1"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "1 楼（总服务台与密集书库）：设有图书馆总服务台、还书处、自助借还书终端机、密集书库、学术报告厅及智能门禁通行闸机；",
+            "score": 1.24
+          },
+          {
+            "citation_index": 1,
+            "text": "晴川图书馆坐落于惜缘湖畔（地标编号: library），建筑总面积逾 2.5 万平方米，全馆共地上 4 层，实行“藏、借、阅、查、研”一体化全开架服务模式：",
+            "score": 1.0733
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "4层"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 143.96310003940016
+      },
+      {
+        "id": "answer_13",
+        "question": "图书馆丢书买新书赔偿还要交多少加工费？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 1. 遗失赔偿：读者遗失图书，须首选购买相同版次（或经图书馆认可的更新版次）的新书予以赔偿，并缴纳 5 元加工费；无法购得同种图书的，按原书价格的 2～5 倍予以现金赔偿。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "4. 图书损坏、遗失赔偿与考研席位守则",
+            "preview": "4. 图书损坏、遗失赔偿与考研席位守则\n1. 遗失赔偿：读者遗失图书，须首选购买相同版次（或经图书馆认可的更新版次）的新书予以赔偿，并缴纳 5 元加工费；无法购得同种图书的，按原书价格的 2～5 倍予以现金赔偿。\n2. 考研自习室管理守则：\n   - 考研专座每年秋季面向全校大四考研学生开放集中申请，经审核通过后统一分配固定座位号；\n   - 入座学生须保持",
+            "full_text": "## 4. 图书损坏、遗失赔偿与考研席位守则\n1. **遗失赔偿**：读者遗失图书，须首选购买相同版次（或经图书馆认可的更新版次）的新书予以赔偿，并缴纳 5 元加工费；无法购得同种图书的，按原书价格的 2～5 倍予以现金赔偿。\n2. **考研自习室管理守则**：\n   - 考研专座每年秋季面向全校大四考研学生开放集中申请，经审核通过后统一分配固定座位号；\n   - 入座学生须保持安静，手机静音，离开座位超过 60 分钟视为离座弃用；严禁私拉接线板、使用大功率热得快等违规电器。",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "1. 遗失赔偿：读者遗失图书，须首选购买相同版次（或经图书馆认可的更新版次）的新书予以赔偿，并缴纳 5 元加工费；无法购得同种图书的，按原书价格的 2～5 倍予以现金赔偿。",
+            "images": [],
+            "section_id": "library:4"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "1. 遗失赔偿：读者遗失图书，须首选购买相同版次（或经图书馆认可的更新版次）的新书予以赔偿，并缴纳 5 元加工费；无法购得同种图书的，按原书价格的 2～5 倍予以现金赔偿。",
+            "score": 1.0929
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "5元"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 180.28800003230572
+      },
+      {
+        "id": "answer_14",
+        "question": "晴川奖学金材料截止什么时候？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 奖学金材料在第 5 教学周周五前提交（以当年学工处评奖评优正式通知截止日期为准）。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "3. 评审程序与时间节点安排",
+            "preview": "3. 评审程序与时间节点安排\n晴川奖助学金的评审严格坚持“公开、公平、公正、择优”的原则，实行“三级评审、两级公示”制度：\n1. 学生申报阶段：每年秋季学期启动，学生本人向所在学院辅导员提交《晴川奖学金申请审批表》及加盖二级学院公章的上一学年官方成绩单。奖学金材料在第 5 教学周周五前提交（以当年学工处评奖评优正式通知截止日期为准）。\n2. 二级学院初评与第",
+            "full_text": "## 3. 评审程序与时间节点安排\n晴川奖助学金的评审严格坚持“公开、公平、公正、择优”的原则，实行“三级评审、两级公示”制度：\n1. **学生申报阶段**：每年秋季学期启动，学生本人向所在学院辅导员提交《晴川奖学金申请审批表》及加盖二级学院公章的上一学年官方成绩单。奖学金材料在第 5 教学周周五前提交（以当年学工处评奖评优正式通知截止日期为准）。\n2. **二级学院初评与第一级公示**：\n   - 各二级学院奖助学金评审工作小组对申报材料进行资格初核与量化综合考评；",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "奖学金材料在第 5 教学周周五前提交（以当年学工处评奖评优正式通知截止日期为准）。",
+            "images": [],
+            "section_id": "scholarship:6"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "奖学金材料在第 5 教学周周五前提交（以当年学工处评奖评优正式通知截止日期为准）。",
+            "score": 1.2567
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "第5教学周周五"
+        ],
+        "expected_sources": [
+          "scholarship"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 204.23949998803437
+      },
+      {
+        "id": "answer_15",
+        "question": "那什么时候截止？",
+        "history": [
+          {
+            "role": "user",
+            "content": "晴川奖学金怎么申请？"
+          }
+        ],
+        "answer": "🎯【核心解答】\n• 奖学金材料在第 5 教学周周五前提交（以当年学工处评奖评优正式通知截止日期为准）。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "3. 评审程序与时间节点安排",
+            "preview": "3. 评审程序与时间节点安排\n晴川奖助学金的评审严格坚持“公开、公平、公正、择优”的原则，实行“三级评审、两级公示”制度：\n1. 学生申报阶段：每年秋季学期启动，学生本人向所在学院辅导员提交《晴川奖学金申请审批表》及加盖二级学院公章的上一学年官方成绩单。奖学金材料在第 5 教学周周五前提交（以当年学工处评奖评优正式通知截止日期为准）。\n2. 二级学院初评与第",
+            "full_text": "## 3. 评审程序与时间节点安排\n晴川奖助学金的评审严格坚持“公开、公平、公正、择优”的原则，实行“三级评审、两级公示”制度：\n1. **学生申报阶段**：每年秋季学期启动，学生本人向所在学院辅导员提交《晴川奖学金申请审批表》及加盖二级学院公章的上一学年官方成绩单。奖学金材料在第 5 教学周周五前提交（以当年学工处评奖评优正式通知截止日期为准）。\n2. **二级学院初评与第一级公示**：\n   - 各二级学院奖助学金评审工作小组对申报材料进行资格初核与量化综合考评；",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "奖学金材料在第 5 教学周周五前提交（以当年学工处评奖评优正式通知截止日期为准）。",
+            "images": [],
+            "section_id": "scholarship:6"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "奖学金材料在第 5 教学周周五前提交（以当年学工处评奖评优正式通知截止日期为准）。",
+            "score": 1.14
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "第5教学周周五"
+        ],
+        "expected_sources": [
+          "scholarship"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 167.66280005685985
+      },
+      {
+        "id": "answer_16",
+        "question": "晴川奖学金一等奖多少钱？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名； [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "（一）校级晴川奖学金",
+            "preview": "（一）校级晴川奖学金\n晴川奖学金是学校面向优秀在读学生设立的最高规格校级荣誉奖项，旨在激励晴川学子立大志、成大才、争创一流。评审对象为全日制本专科大二及以上年级的优秀在读学生（专升本学生自就读本科第二年起具备申请资格）：\n- 晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名；\n- 晴川奖学金二等奖（乙等）：奖励金额为每人每学年",
+            "full_text": "### （一）校级晴川奖学金\n晴川奖学金是学校面向优秀在读学生设立的最高规格校级荣誉奖项，旨在激励晴川学子立大志、成大才、争创一流。评审对象为全日制本专科大二及以上年级的优秀在读学生（专升本学生自就读本科第二年起具备申请资格）：\n- **晴川奖学金一等奖（甲等）**：奖励金额为每人每学年 **3000 元**，全校评选 10 名；\n- **晴川奖学金二等奖（乙等）**：奖励金额为每人每学年 **2000 元**，全校评选 20 名；",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名；",
+            "images": [],
+            "section_id": "scholarship:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名；",
+            "score": 1.44
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "3000元"
+        ],
+        "expected_sources": [
+          "scholarship"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 162.81919996254146
+      },
+      {
+        "id": "answer_17",
+        "question": "晴川奖学金二等奖多少钱？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 晴川奖学金二等奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名； [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "（一）校级晴川奖学金",
+            "preview": "（一）校级晴川奖学金\n晴川奖学金是学校面向优秀在读学生设立的最高规格校级荣誉奖项，旨在激励晴川学子立大志、成大才、争创一流。评审对象为全日制本专科大二及以上年级的优秀在读学生（专升本学生自就读本科第二年起具备申请资格）：\n- 晴川奖学金一等奖（甲等）：奖励金额为每人每学年 3000 元，全校评选 10 名；\n- 晴川奖学金二等奖（乙等）：奖励金额为每人每学年",
+            "full_text": "### （一）校级晴川奖学金\n晴川奖学金是学校面向优秀在读学生设立的最高规格校级荣誉奖项，旨在激励晴川学子立大志、成大才、争创一流。评审对象为全日制本专科大二及以上年级的优秀在读学生（专升本学生自就读本科第二年起具备申请资格）：\n- **晴川奖学金一等奖（甲等）**：奖励金额为每人每学年 **3000 元**，全校评选 10 名；\n- **晴川奖学金二等奖（乙等）**：奖励金额为每人每学年 **2000 元**，全校评选 20 名；",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "晴川奖学金二等奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名；",
+            "images": [],
+            "section_id": "scholarship:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "晴川奖学金二等奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名；",
+            "score": 1.44
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "2000元"
+        ],
+        "expected_sources": [
+          "scholarship"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 169.37260003760457
+      },
+      {
+        "id": "answer_18",
+        "question": "晴川奖学金三等奖多少钱？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 晴川奖学金三等奖（丙等）：奖励金额为每人每学年 1000 元，全校评选 630 名。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "（一）校级晴川奖学金",
+            "preview": "奖（乙等）：奖励金额为每人每学年 2000 元，全校评选 20 名；\n- 晴川奖学金三等奖（丙等）：奖励金额为每人每学年 1000 元，全校评选 630 名。",
+            "full_text": "奖（乙等）**：奖励金额为每人每学年 **2000 元**，全校评选 20 名；\n- **晴川奖学金三等奖（丙等）**：奖励金额为每人每学年 **1000 元**，全校评选 630 名。",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "晴川奖学金三等奖（丙等）：奖励金额为每人每学年 1000 元，全校评选 630 名。",
+            "images": [],
+            "section_id": "scholarship:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "晴川奖学金三等奖（丙等）：奖励金额为每人每学年 1000 元，全校评选 630 名。",
+            "score": 1.44
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "1000元"
+        ],
+        "expected_sources": [
+          "scholarship"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 162.20450005494058
+      },
+      {
+        "id": "answer_19",
+        "question": "晴川奖学金有挂科还能申请吗？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 硬性门槛（无不及格课程）：上一学年所修全部必修课、专业选修课及实践环节考核成绩必须全部及格，有挂科/不及格记录者一律取消参评综合奖学金与晴川奖学金资格； [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "2. 评选申报条件与硬性资格门槛",
+            "preview": "点要求：\n   - 热爱所学专业，学习态度端正，勤奋刻苦，各门功课成绩优良；\n   - 硬性门槛（无不及格课程）：上一学年所修全部必修课、专业选修课及实践环节考核成绩必须全部及格，有挂科/不及格记录者一律取消参评综合奖学金与晴川奖学金资格；\n   - 综合素质测评成绩和学年平均学分绩点（GPA）位列本年级专业或班级前列；\n3. 日常行为与劳动品德：积极参与“",
+            "full_text": "点要求**：\n   - 热爱所学专业，学习态度端正，勤奋刻苦，各门功课成绩优良；\n   - **硬性门槛（无不及格课程）**：上一学年所修全部必修课、专业选修课及实践环节考核成绩必须全部及格，**有挂科/不及格记录者一律取消参评综合奖学金与晴川奖学金资格**；\n   - 综合素质测评成绩和学年平均学分绩点（GPA）位列本年级专业或班级前列；\n3. **日常行为与劳动品德**：积极参与“三早一晚”（早操、早读、晚自习）、文明宿舍建设与校园文化体育活动；",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "硬性门槛（无不及格课程）：上一学年所修全部必修课、专业选修课及实践环节考核成绩必须全部及格，有挂科/不及格记录者一律取消参评综合奖学金与晴川奖学金资格；",
+            "images": [],
+            "section_id": "scholarship:5"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "硬性门槛（无不及格课程）：上一学年所修全部必修课、专业选修课及实践环节考核成绩必须全部及格，有挂科/不及格记录者一律取消参评综合奖学金与晴川奖学金资格；",
+            "score": 1.24
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "取消"
+        ],
+        "expected_sources": [
+          "scholarship"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 201.66809996590018
+      },
+      {
+        "id": "answer_20",
+        "question": "晴川奖学金GPA一定要3.0吗？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 综合素质测评成绩和学年平均学分绩点（GPA）位列本年级专业或班级前列； [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "2. 评选申报条件与硬性资格门槛",
+            "preview": "2. 评选申报条件与硬性资格门槛\n申请晴川奖学金与各类优秀荣誉称号的学生，必须同时满足以下基本条件：\n1. 政治思想素质过硬：热爱社会主义祖国，拥护中国共产党的领导，遵守宪法和法律，遵守学校各项规章制度，在校期间未受过任何纪律处分；\n2. 学习成绩与绩点要求：\n   - 热爱所学专业，学习态度端正，勤奋刻苦，各门功课成绩优良；",
+            "full_text": "## 2. 评选申报条件与硬性资格门槛\n申请晴川奖学金与各类优秀荣誉称号的学生，必须同时满足以下基本条件：\n1. **政治思想素质过硬**：热爱社会主义祖国，拥护中国共产党的领导，遵守宪法和法律，遵守学校各项规章制度，在校期间未受过任何纪律处分；\n2. **学习成绩与绩点要求**：\n   - 热爱所学专业，学习态度端正，勤奋刻苦，各门功课成绩优良；",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "综合素质测评成绩和学年平均学分绩点（GPA）位列本年级专业或班级前列；",
+            "images": [],
+            "section_id": "scholarship:5"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "综合素质测评成绩和学年平均学分绩点（GPA）位列本年级专业或班级前列；",
+            "score": 0.6938
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "前列"
+        ],
+        "expected_sources": [
+          "scholarship"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 215.58109996840358
+      },
+      {
+        "id": "answer_21",
+        "question": "晴川奖学金学院初评公示至少几天？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 初评结果在各二级学院橱窗或学院官网醒目位置进行不少于 3 个工作日 的初评公示，广泛接受师生监督。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "3. 评审程序与时间节点安排",
+            "preview": "3. 评审程序与时间节点安排\n晴川奖助学金的评审严格坚持“公开、公平、公正、择优”的原则，实行“三级评审、两级公示”制度：\n1. 学生申报阶段：每年秋季学期启动，学生本人向所在学院辅导员提交《晴川奖学金申请审批表》及加盖二级学院公章的上一学年官方成绩单。奖学金材料在第 5 教学周周五前提交（以当年学工处评奖评优正式通知截止日期为准）。\n2. 二级学院初评与第",
+            "full_text": "## 3. 评审程序与时间节点安排\n晴川奖助学金的评审严格坚持“公开、公平、公正、择优”的原则，实行“三级评审、两级公示”制度：\n1. **学生申报阶段**：每年秋季学期启动，学生本人向所在学院辅导员提交《晴川奖学金申请审批表》及加盖二级学院公章的上一学年官方成绩单。奖学金材料在第 5 教学周周五前提交（以当年学工处评奖评优正式通知截止日期为准）。\n2. **二级学院初评与第一级公示**：\n   - 各二级学院奖助学金评审工作小组对申报材料进行资格初核与量化综合考评；",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "初评结果在各二级学院橱窗或学院官网醒目位置进行不少于 3 个工作日 的初评公示，广泛接受师生监督。",
+            "images": [],
+            "section_id": "scholarship:6"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "初评结果在各二级学院橱窗或学院官网醒目位置进行不少于 3 个工作日 的初评公示，广泛接受师生监督。",
+            "score": 0.8257
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "3个工作日"
+        ],
+        "expected_sources": [
+          "scholarship"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 196.13749999552965
+      },
+      {
+        "id": "answer_22",
+        "question": "晴川奖学金学校终审公示至少几天？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 终审名单在学校官方主页与公告栏面向全校公示不少于 5 个工作日； [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "3. 评审程序与时间节点安排",
+            "preview": "报“武汉晴川学院奖助学金工作领导小组”进行集中审议并终审表决。\n4. 校级第二级公示与发奖：\n   - 终审名单在学校官方主页与公告栏面向全校公示不少于 5 个工作日；\n   - 公示期满无异议后，学校正式印发表彰决定，并将奖学金一次性划拨发放至获奖学生的个人银行账户。",
+            "full_text": "- 报“武汉晴川学院奖助学金工作领导小组”进行集中审议并终审表决。\n4. **校级第二级公示与发奖**：\n   - 终审名单在学校官方主页与公告栏面向全校公示不少于 **5 个工作日**；\n   - 公示期满无异议后，学校正式印发表彰决定，并将奖学金一次性划拨发放至获奖学生的个人银行账户。\n\n---",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "终审名单在学校官方主页与公告栏面向全校公示不少于 5 个工作日；",
+            "images": [],
+            "section_id": "scholarship:6"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "终审名单在学校官方主页与公告栏面向全校公示不少于 5 个工作日；",
+            "score": 0.7543
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "5个工作日"
+        ],
+        "expected_sources": [
+          "scholarship"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 187.1267999522388
+      },
+      {
+        "id": "answer_23",
+        "question": "计院办公室电话多少？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 计算机学院 学院办公室电话：027-87934453 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "office_contacts",
+            "doc_name": "武汉晴川学院各单位办公电话黄页",
+            "title": "2. 各二级教学学院与教学课部办公电话",
+            "preview": "2. 各二级教学学院与教学课部办公电话\n- 计算机学院 学院办公室电话：027-87934453\n- 北斗学院 学院办公室电话：027-87934510\n- 机械与电气工程学院 学院办公室电话：027-87934460\n- 商学院 学院办公室电话：027-87934470\n- 会计学院 学院办公室电话：027-87934480\n- 传媒艺术学院 学院办公室电",
+            "full_text": "## 2. 各二级教学学院与教学课部办公电话\n- **计算机学院** 学院办公室电话：027-87934453\n- **北斗学院** 学院办公室电话：027-87934510\n- **机械与电气工程学院** 学院办公室电话：027-87934460\n- **商学院** 学院办公室电话：027-87934470\n- **会计学院** 学院办公室电话：027-87934480\n- **传媒艺术学院** 学院办公室电话：027-87934440\n- **设计工程学院**",
+            "url": "https://www.qcuwh.edu.cn/lxfs.htm",
+            "evidence_text": "计算机学院 学院办公室电话：027-87934453",
+            "images": [],
+            "section_id": "office_contacts:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "计算机学院 学院办公室电话：027-87934453",
+            "score": 2.0582
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "027-87934453"
+        ],
+        "expected_sources": [
+          "office_contacts"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 245.87790004443377
+      },
+      {
+        "id": "answer_24",
+        "question": "退改选课程截止什么时候？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 退改选在第 2 教学周周五 17:00 截止。 [1]\n• 第一轮选课在第 1 教学周周三 12:00 截止。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "course_selection",
+            "doc_name": "武汉晴川学院课程修读与退改选管理办法",
+            "title": "2. 选课轮次与截止时间节点",
+            "preview": "班容积进行智能均衡抽签。第一轮选课在第 1 教学周周三 12:00 截止。\n2. 第二轮（正选与改选阶段）：开学第 1 教学周周四 09:00 启动，实行“即选即中”机制，选满即止；因选课人数不足停开的课程需在此阶段完成改选。\n3. 第三轮（退选与补选最终阶段）：开学第 2 教学周启动。退改选在第 2 教学周周五 17:00 截止。\n4. 超期处理原则：选课",
+            "full_text": "2. 选课轮次与截止时间节点\n全校本科生网上选课依托“晴川智慧教务综合信息服务平台（https://jw.qcuwh.edu.cn）”进行，严格分三个阶段推进：\n1. **第一轮（预选阶段）**：通常于每学期第 18-19 教学周开展，学生按培养计划预选下学期专业方向课及通识课程，此轮不限制选课人数上限，系统按教学班容积进行智能均衡抽签。第一轮选课在第 1 教学周周三 12:00 截止。\n2. **第二轮（正选与改选阶段）**：开学第 1 教学周周四 09:00 启动，实行“即选即中”机制，选满即止；因选课人数不足停开的课程需在此阶段完成改选。\n3. **第三轮（退选与补选最终阶段）**：开学第 2 教学周启动。**退改选在第 2 教学周周五 17:00 截止**。\n4. **超期处理原则**：选课系统关闭后，原则上不再接受任何退课、增选或改选手续。确因休学复学、转专业补修、学籍异动等特殊情况需要调整课程的，必须由学生本人如实填写《武汉晴川学院课程手工退补选审批表》，附书面异动证明，经所在二级学院教学副院长签字盖章后，于第 3 教学周周三前统一报送教务处教务运行科特批处理。",
+            "url": "https://jw.qcuwh.edu.cn",
+            "evidence_text": "退改选在第 2 教学周周五 17:00 截止。\n第一轮选课在第 1 教学周周三 12:00 截止。",
+            "images": [],
+            "section_id": "course_selection:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "退改选在第 2 教学周周五 17:00 截止。",
+            "score": 1.34
+          },
+          {
+            "citation_index": 1,
+            "text": "第一轮选课在第 1 教学周周三 12:00 截止。",
+            "score": 1.24
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "第2教学周周五17:00"
+        ],
+        "expected_sources": [
+          "course_selection"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 158.5403000935912
+      },
+      {
+        "id": "answer_25",
+        "question": "选课第一轮何时截止？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 第一轮选课在第 1 教学周周三 12:00 截止。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "course_selection",
+            "doc_name": "武汉晴川学院课程修读与退改选管理办法",
+            "title": "2. 选课轮次与截止时间节点",
+            "preview": "2. 选课轮次与截止时间节点\n全校本科生网上选课依托“晴川智慧教务综合信息服务平台（https://jw.qcuwh.edu.cn）”进行，严格分三个阶段推进：\n1. 第一轮（预选阶段）：通常于每学期第 18-19 教学周开展，学生按培养计划预选下学期专业方向课及通识课程，此轮不限制选课人数上限，系统按教学班容积进行智能均衡抽签。第一轮选课在第 1 教学周周",
+            "full_text": "2. 选课轮次与截止时间节点\n全校本科生网上选课依托“晴川智慧教务综合信息服务平台（https://jw.qcuwh.edu.cn）”进行，严格分三个阶段推进：\n1. **第一轮（预选阶段）**：通常于每学期第 18-19 教学周开展，学生按培养计划预选下学期专业方向课及通识课程，此轮不限制选课人数上限，系统按教学班容积进行智能均衡抽签。第一轮选课在第 1 教学周周三 12:00 截止。\n2. **第二轮（正选与改选阶段）**：开学第 1 教学周周四 09:00 启动，实行“即选即中”机制，选满即止；因选课人数不足停开的课程需在此阶段完成改选。\n3. **第三轮（退选与补选最终阶段）**：开学第 2 教学周启动。**退改选在第 2 教学周周五 17:00 截止**。\n4. **超期处理原则**：选课系统关闭后，原则上不再接受任何退课、增选或改选手续。确因休学复学、转专业补修、学籍异动等特殊情况需要调整课程的，必须由学生本人如实填写《武汉晴川学院课程手工退补选审批表》，附书面异动证明，经所在二级学院教学副院长签字盖章后，于第 3 教学周周三前统一报送教务处教务运行科特批处理。",
+            "url": "https://jw.qcuwh.edu.cn",
+            "evidence_text": "第一轮选课在第 1 教学周周三 12:00 截止。",
+            "images": [],
+            "section_id": "course_selection:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "第一轮选课在第 1 教学周周三 12:00 截止。",
+            "score": 1.54
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "第1教学周周三12:00"
+        ],
+        "expected_sources": [
+          "course_selection"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 150.13619989622384
+      },
+      {
+        "id": "answer_26",
+        "question": "图书馆地下三层VR游戏中心怎么预约？",
+        "history": [],
+        "answer": "现有知识库没有找到能直接回答这个问题的明确依据。请补充具体事项，或向相关部门核实。",
+        "citations": [],
+        "evidence": [],
+        "refused": true,
+        "clarification": false,
+        "expected_refusal": true,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [],
+        "expected_sources": [],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 0.0,
+        "evidence_fact_support": 0.0,
+        "source_coverage": 0.0,
+        "citation_alignment": 0.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 195.13830007053912
+      },
+      {
+        "id": "answer_27",
+        "question": "2035年图书馆寒假每天几点开放？",
+        "history": [],
+        "answer": "现有知识库没有找到能直接回答这个问题的明确依据。请补充具体事项，或向相关部门核实。",
+        "citations": [],
+        "evidence": [],
+        "refused": true,
+        "clarification": false,
+        "expected_refusal": true,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [],
+        "expected_sources": [],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 0.0,
+        "evidence_fact_support": 0.0,
+        "source_coverage": 0.0,
+        "citation_alignment": 0.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 162.49270003754646
+      },
+      {
+        "id": "answer_28",
+        "question": "明天苹果股票会涨多少钱？",
+        "history": [],
+        "answer": "现有知识库没有找到能直接回答这个问题的明确依据。请补充具体事项，或向相关部门核实。",
+        "citations": [],
+        "evidence": [],
+        "refused": true,
+        "clarification": false,
+        "expected_refusal": true,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [],
+        "expected_sources": [],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 0.0,
+        "evidence_fact_support": 0.0,
+        "source_coverage": 0.0,
+        "citation_alignment": 0.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 227.42200002539903
+      },
+      {
+        "id": "answer_29",
+        "question": "那什么时候截止？",
+        "history": [],
+        "answer": "请明确你指的是哪个地点、部门或事项，例如图书馆、实验室或奖学金。",
+        "citations": [],
+        "evidence": [],
+        "refused": false,
+        "clarification": true,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": true,
+        "expected_facts": [],
+        "expected_sources": [],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 0.0,
+        "evidence_fact_support": 0.0,
+        "source_coverage": 0.0,
+        "citation_alignment": 0.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 0.5089000333100557
+      },
+      {
+        "id": "answer_30",
+        "question": "那里几点关门？",
+        "history": [],
+        "answer": "请明确你指的是哪个地点、部门或事项，例如图书馆、实验室或奖学金。",
+        "citations": [],
+        "evidence": [],
+        "refused": false,
+        "clarification": true,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": true,
+        "expected_facts": [],
+        "expected_sources": [],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 0.0,
+        "evidence_fact_support": 0.0,
+        "source_coverage": 0.0,
+        "citation_alignment": 0.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 0.9533000411465764
+      },
+      {
+        "id": "answer_31",
+        "question": "图书馆普通学生借书期限是多少天？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 借阅期限：普通图书借期为 30 天（教职工 60 天）； [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "3. 图书借还与流通规则",
+            "preview": "3. 图书借还与流通规则\n1. 借书权限与额度：\n   - 全日制在校本专科学生：每人限借 10 册图书；\n   - 在职教职员工：每人限借 30 册图书。\n2. 借阅期限与续借规则：\n   - 借阅期限：普通图书借期为 30 天（教职工 60 天）；\n   - 续借规定：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号在线续借 1 ",
+            "full_text": "## 3. 图书借还与流通规则\n1. **借书权限与额度**：\n   - 全日制在校本专科学生：**每人限借 10 册图书**；\n   - 在职教职员工：每人限借 30 册图书。\n2. **借阅期限与续借规则**：\n   - **借阅期限**：普通图书借期为 **30 天**（教职工 60 天）；\n   - **续借规定**：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号**在线续借 1 次，续借期限为 30 天**（最长可连续持有 60 天）。",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "借阅期限：普通图书借期为 30 天（教职工 60 天）；",
+            "images": [],
+            "section_id": "library:3"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "借阅期限：普通图书借期为 30 天（教职工 60 天）；",
+            "score": 0.7543
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "30天"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 185.5095000937581
+      },
+      {
+        "id": "answer_32",
+        "question": "晴川奖学金什么时候发到银行卡？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 公示期满无异议后，学校正式印发表彰决定，并将奖学金一次性划拨发放至获奖学生的个人银行账户。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "3. 评审程序与时间节点安排",
+            "preview": "报“武汉晴川学院奖助学金工作领导小组”进行集中审议并终审表决。\n4. 校级第二级公示与发奖：\n   - 终审名单在学校官方主页与公告栏面向全校公示不少于 5 个工作日；\n   - 公示期满无异议后，学校正式印发表彰决定，并将奖学金一次性划拨发放至获奖学生的个人银行账户。",
+            "full_text": "- 报“武汉晴川学院奖助学金工作领导小组”进行集中审议并终审表决。\n4. **校级第二级公示与发奖**：\n   - 终审名单在学校官方主页与公告栏面向全校公示不少于 **5 个工作日**；\n   - 公示期满无异议后，学校正式印发表彰决定，并将奖学金一次性划拨发放至获奖学生的个人银行账户。\n\n---",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "公示期满无异议后，学校正式印发表彰决定，并将奖学金一次性划拨发放至获奖学生的个人银行账户。",
+            "images": [],
+            "section_id": "scholarship:6"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "公示期满无异议后，学校正式印发表彰决定，并将奖学金一次性划拨发放至获奖学生的个人银行账户。",
+            "score": 0.7708
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "公示期满无异议后"
+        ],
+        "expected_sources": [
+          "scholarship"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 178.24760009534657
+      },
+      {
+        "id": "answer_33",
+        "question": "计算机学院学费多少钱？",
+        "history": [],
+        "answer": "现有知识库没有找到能直接回答这个问题的明确依据。请补充具体事项，或向相关部门核实。",
+        "citations": [],
+        "evidence": [],
+        "refused": true,
+        "clarification": false,
+        "expected_refusal": true,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [],
+        "expected_sources": [],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 0.0,
+        "evidence_fact_support": 0.0,
+        "source_coverage": 0.0,
+        "citation_alignment": 0.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 259.1856000944972
+      },
+      {
+        "id": "answer_34",
+        "question": "图书馆馆长手机号是多少？",
+        "history": [],
+        "answer": "现有知识库没有找到能直接回答这个问题的明确依据。请补充具体事项，或向相关部门核实。",
+        "citations": [],
+        "evidence": [],
+        "refused": true,
+        "clarification": false,
+        "expected_refusal": true,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [],
+        "expected_sources": [],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 0.0,
+        "evidence_fact_support": 0.0,
+        "source_coverage": 0.0,
+        "citation_alignment": 0.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 188.19000001531094
+      },
+      {
+        "id": "answer_35",
+        "question": "图书馆2027年翻新预算是多少万元？",
+        "history": [],
+        "answer": "现有知识库没有找到能直接回答这个问题的明确依据。请补充具体事项，或向相关部门核实。",
+        "citations": [],
+        "evidence": [],
+        "refused": true,
+        "clarification": false,
+        "expected_refusal": true,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [],
+        "expected_sources": [],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 0.0,
+        "evidence_fact_support": 0.0,
+        "source_coverage": 0.0,
+        "citation_alignment": 0.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 186.55490002129227
+      },
+      {
+        "id": "answer_36",
+        "question": "它什么时候关闭？",
+        "history": [
+          {
+            "role": "user",
+            "content": "图书馆几点开门？"
+          },
+          {
+            "role": "user",
+            "content": "学校校长是谁？"
+          }
+        ],
+        "answer": "请明确你指的是哪个地点、部门或事项，例如图书馆、实验室或奖学金。",
+        "citations": [],
+        "evidence": [],
+        "refused": false,
+        "clarification": true,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": true,
+        "expected_facts": [],
+        "expected_sources": [],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 0.0,
+        "evidence_fact_support": 0.0,
+        "source_coverage": 0.0,
+        "citation_alignment": 0.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 0.5874999333173037
+      },
+      {
+        "id": "answer_37",
+        "question": "学工处联系电话是多少？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 学生工作处（学工处） 办公电话：027-87934608 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "office_contacts",
+            "doc_name": "武汉晴川学院各单位办公电话黄页",
+            "title": "1. 校级党政机关与职能部处办公电话",
+            "preview": "1. 校级党政机关与职能部处办公电话\n- 学校办公室（校办） 办公电话：027-87934500（传真：027-87934600）\n- 教务处 办公电话：027-87934420 / 027-87934421\n- 教学质量监控与评估中心 办公电话：027-87934406\n- 人事处（党委教师工作部） 办公电话：027-87934404\n- 学生工作处（学工",
+            "full_text": "## 1. 校级党政机关与职能部处办公电话\n- **学校办公室（校办）** 办公电话：027-87934500（传真：027-87934600）\n- **教务处** 办公电话：027-87934420 / 027-87934421\n- **教学质量监控与评估中心** 办公电话：027-87934406\n- **人事处（党委教师工作部）** 办公电话：027-87934404\n- **学生工作处（学工处）** 办公电话：027-87934608\n- **党委宣传部**",
+            "url": "https://www.qcuwh.edu.cn/lxfs.htm",
+            "evidence_text": "学生工作处（学工处） 办公电话：027-87934608",
+            "images": [],
+            "section_id": "office_contacts:1"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "学生工作处（学工处） 办公电话：027-87934608",
+            "score": 1.6945
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "027-87934608"
+        ],
+        "expected_sources": [],
+        "expected_source_alternatives": [
+          "office_contacts",
+          "scholarship"
+        ],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 245.02959998790175
+      },
+      {
+        "id": "answer_38",
+        "question": "按知识库的标准，国家奖学金每人每年多少钱？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 国家奖学金：奖励特别优秀的全日制二年级及以上本科学生，奖励标准为每人每学年 8000 元，颁发教育部统一印制的荣誉证书； [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "（三）国家级奖学金与国家助学金",
+            "preview": "（三）国家级奖学金与国家助学金\n- 国家奖学金：奖励特别优秀的全日制二年级及以上本科学生，奖励标准为每人每学年 8000 元，颁发教育部统一印制的荣誉证书；\n- 国家励志奖学金：奖励品学兼优的家庭经济困难学生，奖励标准为每人每学年 5000 元；\n- 国家助学金：资助家庭经济困难学生，平均资助标准为每生每年 3300 元（分为一等 4400 元、二等 330",
+            "full_text": "### （三）国家级奖学金与国家助学金\n- **国家奖学金**：奖励特别优秀的全日制二年级及以上本科学生，奖励标准为每人每学年 **8000 元**，颁发教育部统一印制的荣誉证书；\n- **国家励志奖学金**：奖励品学兼优的家庭经济困难学生，奖励标准为每人每学年 **5000 元**；\n- **国家助学金**：资助家庭经济困难学生，平均资助标准为每生每年 **3300 元**（分为一等 4400 元、二等 3300 元、三等 2200 元三档按月发放）。\n\n---",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "国家奖学金：奖励特别优秀的全日制二年级及以上本科学生，奖励标准为每人每学年 8000 元，颁发教育部统一印制的荣誉证书；",
+            "images": [],
+            "section_id": "scholarship:4"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "国家奖学金：奖励特别优秀的全日制二年级及以上本科学生，奖励标准为每人每学年 8000 元，颁发教育部统一印制的荣誉证书；",
+            "score": 1.1289
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "8000元"
+        ],
+        "expected_sources": [],
+        "expected_source_alternatives": [
+          "info_disclosure",
+          "news_xxyw",
+          "scholarship"
+        ],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 228.18460001144558
+      },
+      {
+        "id": "answer_39",
+        "question": "按知识库的标准，国家励志奖学金每年奖励多少元？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 国家励志奖学金：奖励品学兼优的家庭经济困难学生，奖励标准为每人每学年 5000 元； [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "scholarship",
+            "doc_name": "武汉晴川学院学生奖学金评定与资助管理条例",
+            "title": "（三）国家级奖学金与国家助学金",
+            "preview": "（三）国家级奖学金与国家助学金\n- 国家奖学金：奖励特别优秀的全日制二年级及以上本科学生，奖励标准为每人每学年 8000 元，颁发教育部统一印制的荣誉证书；\n- 国家励志奖学金：奖励品学兼优的家庭经济困难学生，奖励标准为每人每学年 5000 元；\n- 国家助学金：资助家庭经济困难学生，平均资助标准为每生每年 3300 元（分为一等 4400 元、二等 330",
+            "full_text": "### （三）国家级奖学金与国家助学金\n- **国家奖学金**：奖励特别优秀的全日制二年级及以上本科学生，奖励标准为每人每学年 **8000 元**，颁发教育部统一印制的荣誉证书；\n- **国家励志奖学金**：奖励品学兼优的家庭经济困难学生，奖励标准为每人每学年 **5000 元**；\n- **国家助学金**：资助家庭经济困难学生，平均资助标准为每生每年 **3300 元**（分为一等 4400 元、二等 3300 元、三等 2200 元三档按月发放）。\n\n---",
+            "url": "https://xgc.qcuwh.edu.cn",
+            "evidence_text": "国家励志奖学金：奖励品学兼优的家庭经济困难学生，奖励标准为每人每学年 5000 元；",
+            "images": [],
+            "section_id": "scholarship:4"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "国家励志奖学金：奖励品学兼优的家庭经济困难学生，奖励标准为每人每学年 5000 元；",
+            "score": 1.14
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "5000元"
+        ],
+        "expected_sources": [],
+        "expected_source_alternatives": [
+          "info_disclosure",
+          "news_xxyw",
+          "scholarship"
+        ],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 183.91269992571324
+      },
+      {
+        "id": "answer_40",
+        "question": "GPU实验机房单次默认能预约多长时间？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• GPU 实验机房与专业工作站：单次默认预约时长为 3 小时；如因模型训练或长周期算法渲染确需延长时长的，需在线提交指导教师签署的《长时间实验计算申请单》，经实验室主任线上审核后自动顺延。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "laboratory",
+            "doc_name": "武汉晴川学院教学实验室与机房开放管理规范",
+            "title": "2. 开放时间与机房在线预约流程",
+            "preview": "管理平台（https://lab.qcuwh.edu.cn）”提交开放预约申请；\n   - GPU 实验机房与专业工作站：单次默认预约时长为 3 小时；如因模型训练或长周期算法渲染确需延长时长的，需在线提交指导教师签署的《长时间实验计算申请单》，经实验室主任线上审核后自动顺延。\n   - 预约成功后，学生凭本人校园卡在机房门禁终端刷卡进出，系统自动计时并分配",
+            "full_text": "2. 开放时间与机房在线预约流程\n为深化高素质应用型人才培养，学校各类实验室与计算机机房在保质保量完成计划内实验教学任务的前提下，全面推行课外自主开放：\n1. **常规开放时间**：\n   - 教学工作日：周一至周五 **08:00 — 20:30 全天候连续开放**；\n   - 周末及节假日：周六至周日 **08:30 — 17:30 实行网上预约审批开放**；\n   - 寒暑假期间：针对学科竞赛集训（如中国大学生计算机设计大赛、大广赛、蓝桥杯、智能汽车竞赛）实施专人值班与集中封闭式开放。\n2. **学生自主上机与机房预约流程**：\n   - 学生开展课外科创、毕业设计或专业实验，须提前 1～3 天登录“晴川实验室综合管理平台（https://lab.qcuwh.edu.cn）”提交开放预约申请；\n   - **GPU 实验机房与专业工作站**：**单次默认预约时长为 3 小时**；如因模型训练或长周期算法渲染确需延长时长的，需在线提交指导教师签署的《长时间实验计算申请单》，经实验室主任线上审核后自动顺延。\n   - 预约成功后，学生凭本人校园卡在机房门禁终端刷卡进出，系统自动计时并分配对应机位。",
+            "url": "https://lab.qcuwh.edu.cn",
+            "evidence_text": "GPU 实验机房与专业工作站：单次默认预约时长为 3 小时；如因模型训练或长周期算法渲染确需延长时长的，需在线提交指导教师签署的《长时间实验计算申请单》，经实验室主任线上审核后自动顺延。",
+            "images": [],
+            "section_id": "laboratory:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "GPU 实验机房与专业工作站：单次默认预约时长为 3 小时；如因模型训练或长周期算法渲染确需延长时长的，需在线提交指导教师签署的《长时间实验计算申请单》，经实验室主任线上审核后自动顺延。",
+            "score": 1.4459
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "3小时"
+        ],
+        "expected_sources": [
+          "laboratory"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 160.1762999780476
+      },
+      {
+        "id": "answer_41",
+        "question": "计院有哪些专业？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 学院下设软件工程、计算机科学与技术、物联网工程、数据科学与大数据技术、人工智能等本科专业，建有腾讯云人工智能产业学院。 [1]\n• 开设核心专业：计算机科学与技术、软件工程、物联网工程、数据科学与大数据技术、人工智能 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "campus_organizations",
+            "doc_name": "武汉晴川学院机构设置与院系官网直达（含各学院大标题直达）",
+            "title": "1.1 计算机学院",
+            "preview": "1.1 计算机学院\n\n- 学院官方主页：https://jkx.qcuwh.edu.cn\n- 开设核心专业：计算机科学与技术、软件工程、物联网工程、数据科学与大数据技术、人工智能\n- 学院简介：计算机学院前身为计算机科学与技术系，是学校重点建设的理工科学院。学院下设软件工程、计算机科学与技术、物联网工程、数据科学与大数据技术、人工智能等本科专业，建有腾讯云人",
+            "full_text": "1.1 计算机学院\n\n- **学院官方主页**：[https://jkx.qcuwh.edu.cn](https://jkx.qcuwh.edu.cn)\n- **开设核心专业**：计算机科学与技术、软件工程、物联网工程、数据科学与大数据技术、人工智能\n- **学院简介**：计算机学院前身为计算机科学与技术系，是学校重点建设的理工科学院。学院下设软件工程、计算机科学与技术、物联网工程、数据科学与大数据技术、人工智能等本科专业，建有腾讯云人工智能产业学院。\n\n**官方网站大标题与直达导航栏目**：\n\n- [学院首页](https://jkx.qcuwh.edu.cn/index.htm)\n- [学院概况](https://jkx.qcuwh.edu.cn/xygk.htm)\n- [师资队伍](https://jkx.qcuwh.edu.cn/szdw.htm)\n- [教学科研](https://jkx.qcuwh.edu.cn/jxky.htm)\n- [学生工作](https://jkx.qcuwh.edu.cn/xsgongzuo.htm)\n- [党建示范](https://jkx.qcuwh.edu.cn/djsf.htm)\n- [招生就业](https://jkx.qcuwh.edu.cn/zsjiuye.htm)\n- [产业学院](https://jkx.qcuwh.edu.cn/cyxy.htm)\n- [规章制度](https://jkx.qcuwh.edu.cn/gzzd.htm)\n- [服务大厅](https://jkx.qcuwh.edu.cn/fwdt.htm)\n- [学院简介](https://jkx.qcuwh.edu.cn/xygk/xyjj.htm)\n- [现任领导](https://jkx.qcuwh.edu.cn/xygk/xrld.htm)\n\n\n### 1.2 机械与电气工程学院\n\n- **学院官方主页**：[https://dqx.qcuwh.edu.cn](https://dqx.qcuwh.edu.cn)\n- **开设核心专业**：电气工程及其自动化、机械设计制造及其自动化、机器人工程、智能制造工程\n- **学院简介**：机械与电气工程学院致力于培养高素质工程应用型人才，拥有电气工程及其自动化、机械设计制造及其自动化、机器人工程等专业，建有省级实验教学示范中心。\n\n**官方网站大标题与直达导航栏目**：\n\n- [网站首页](https://dqx.qcuwh.edu.cn/index.htm)\n- [学院概况](https://dqx.qcuwh.edu.cn/xygk/xyjj.htm)\n- [学院简介](https://dqx.qcuwh.edu.cn/xygk/xyjj.htm)\n- [机构设置](https://dqx.qcuwh.edu.cn/xygk/jgsz.htm)\n- [现任领导](https://dqx.qcuwh.edu.cn/xygk/xrld.htm)\n- [教学科研](https://dqx.qcuwh.edu.cn/jxky/zyjs.htm)\n- [专业介绍](https://dqx.qcuwh.edu.cn/jxky/zyjs.htm)\n- [科研成果](https://dqx.qcuwh.edu.cn/jxky/kycg.htm)\n- [师资队伍](https://dqx.qcuwh.edu.cn/szdw/jszj.htm)\n- [教授专家](https://dqx.qcuwh.edu.cn/szdw/jszj.htm)\n- [教师风采](https://dqx.qcuwh.edu.cn/szdw/jsfc.htm)\n- [学生工作](https://dqx.qcuwh.edu.cn/xsgz/xsgl.htm)\n\n\n### 1.3 北斗学院（电子信息学院）\n\n- **学院官方主页**：[https://dxx.qcuwh.edu.cn](https://dxx.qcuwh.edu.cn)\n- **开设核心专业**：电子信息工程、通信工程、微电子科学与工程\n- **学院简介**：北斗学院以国家空间信息产业和北斗战略需求为导向，由学校与行业领军企业共建，开设电子信息工程、通信工程、微电子科学与工程等专业。\n\n**官方网站大标题与直达导航栏目**：\n\n- [网站首页](https://dxx.qcuwh.edu.cn/index.htm)\n- [学院新闻](https://dxx.qcuwh.edu.cn/index/xyxw.htm)\n- [通知公告](https://dxx.qcuwh.edu.cn/index/tzgg.htm)\n- [学院简介](https://dxx.qcuwh.edu.cn/xygk/xyjj.htm)\n- [院长简介](https://dxx.qcuwh.edu.cn/xygk/yzjj.htm)\n- [组织机构](https://dxx.qcuwh.edu.cn/xygk/zzjg.htm)\n- [办公电话](https://dxx.qcuwh.edu.cn/xygk/bgdh.htm)\n- [成果展示](https://dxx.qcuwh.edu.cn/xygk/cgzs.htm)\n- [教师名录](https://dxx.qcuwh.edu.cn/szdw/jsml.htm)\n- [名师风采](https://dxx.qcuwh.edu.cn/szdw/msfc.htm)\n- [学科专业](https://dxx.qcuwh.edu.cn/xkjs/xkzy.htm)\n- [课程建设](https://dxx.qcuwh.edu.cn/xkjs/kcjs.htm)\n\n\n### 1.4 商学院\n\n- **学院官方主页**：[https://dzsm.qcuwh.edu.cn](https://dzsm.qcuwh.edu.cn)\n- **开设核心专业**：电子商务（国家一流课程）、跨境电子商务、国际经济与贸易、市场营销、物流管理\n- **学院简介**：商学院紧跟现代数字经济与新零售发展趋势，开设有电子商务、跨境电子商务、国际经济与贸易、市场营销、物流管理等本科专业，《电子商务概论》获批国家级一流本科课程。\n\n**官方网站大标题与直达导航栏目**：\n\n- [首页](https://dzsm.qcuwh.edu.cn/index.htm)\n- [学院概况](https://dzsm.qcuwh.edu.cn/xygk/xyjj.htm)\n- [学院简介](https://dzsm.qcuwh.edu.cn/xygk/xyjj.htm)\n- [现任领导](https://dzsm.qcuwh.edu.cn/xygk/xrld.htm)\n- [机构设置](https://dzsm.qcuwh.edu.cn/xygk/jgsz.htm)\n- [学科专业](https://dzsm.qcuwh.edu.cn/xkzy/zyjs.htm)\n- [专业介绍](https://dzsm.qcuwh.edu.cn/xkzy/zyjs.htm)\n- [培养方案](https://dzsm.qcuwh.edu.cn/xkzy/pyfa.htm)\n- [师资队伍](https://dzsm.qcuwh.edu.cn/szdw/jszj.htm)\n- [教授专家](https://dzsm.qcuwh.edu.cn/szdw/jszj.htm)\n- [教师风采](https://dzsm.qcuwh.edu.cn/szdw/jsfc/dzswx.htm)\n- [学工行政队伍](https://dzsm.qcuwh.edu.cn/szdw/xgxzdw.htm)\n\n\n### 1.5 会计学院\n\n- **学院官方主页**：[https://jgx.qcuwh.edu.cn](https://jgx.qcuwh.edu.cn)\n- **开设核心专业**：会计学、财务管理、审计学\n- **学院简介**：会计学院办学实力雄厚，开设会计学、财务管理、审计学等专业，注重大数据财务与智能化审计技能培养，毕业生考研率与高质量就业率稳居同类高校前列。\n\n**官方网站大标题与直达导航栏目**：\n\n- [网站首页](https://jgx.qcuwh.edu.cn/index.htm)\n- [学院概况](https://jgx.qcuwh.edu.cn/xygk/xyjj.htm)\n- [学院简介](https://jgx.qcuwh.edu.cn/xygk/xyjj.htm)\n- [现任领导](https://jgx.qcuwh.edu.cn/xygk/xrld.htm)\n- [实践实训基地](https://jgx.qcuwh.edu.cn/xygk/sjsxjd.htm)\n- [机构设置](https://jgx.qcuwh.edu.cn/xygk/jgsz.htm)\n- [师资队伍](https://jgx.qcuwh.edu.cn/szdw/tpjs.htm)\n- [特聘教授](https://jgx.qcuwh.edu.cn/szdw/tpjs.htm)\n- [教授](https://jgx.qcuwh.edu.cn/szdw/js.htm)\n- [副教授](https://jgx.qcuwh.edu.cn/szdw/fjs.htm)\n- [讲师助教](https://jgx.qcuwh.edu.cn/szdw/jszj.htm)\n- [行政教辅](https://jgx.qcuwh.edu.cn/szdw/xzjf.htm)\n\n\n### 1.6 外国语学院\n\n- **学院官方主页**：[https://yyx.qcuwh.edu.cn/](https://yyx.qcuwh.edu.cn/)\n- **开设核心专业**：英语、商务英语、日语\n- **学院简介**：外国语学院致力于培养具有国际视野、跨文化交际能力和熟练外语应用能力的应用型复合人才，开设英语、商务英语、日语等专业。\n\n**官方网站大标题与直达导航栏目**：\n\n- [学校首页](https://yyx.qcuwh.edu.cn/index.htm)\n- [学院首页](https://yyx.qcuwh.edu.cn/index.htm)\n- [学院概况](https://yyx.qcuwh.edu.cn/xxgk.htm)\n- [学院简介](https://yyx.qcuwh.edu.cn/xxgk/xyjj.htm)\n- [院长介绍](https://yyx.qcuwh.edu.cn/xxgk/yzjs.htm)\n- [机构设置](https://yyx.qcuwh.edu.cn/xxgk/jgsz.htm)\n- [骨干教师](https://yyx.qcuwh.edu.cn/xxgk/ggjs.htm)\n- [学科专业](https://yyx.qcuwh.edu.cn/szdw.htm)\n- [培养方案](https://yyx.qcuwh.edu.cn/szdw/pyfa.htm)\n- [专业介绍](https://yyx.qcuwh.edu.cn/szdw/zyjs.htm)\n- [师资队伍](https://yyx.qcuwh.edu.cn/xkjs.htm)\n- [大学英语教研室](https://yyx.qcuwh.edu.cn/xkjs/dxyyjys.htm)\n\n\n### 1.7 传媒艺术学院\n\n- **学院官方主页**：[https://xwx.qcuwh.edu.cn](https://xwx.qcuwh.edu.cn)\n- **开设核心专业**：网络与新媒体、新闻学、广播电视编导、播音与主持艺术\n- **学院简介**：传媒艺术学院拥有全媒体演播厅、融媒体中心等一流实训平台，开设新闻学、网络与新媒体、广播电视编导、播音与主持艺术等专业。\n\n**官方网站大标题与直达导航栏目**：\n\n- [学院首页](https://xwx.qcuwh.edu.cn/index.htm)\n- [学院概况](https://xwx.qcuwh.edu.cn/xygk/xyjj.htm)\n- [教育教学](https://xwx.qcuwh.edu.cn/jyjx/zysz.htm)\n- [师资队伍](https://xwx.qcuwh.edu.cn/szdw/jsdw.htm)\n- [学科建设](https://xwx.qcuwh.edu.cn/xkjs/ylzy.htm)\n- [学工/思政](https://xwx.qcuwh.edu.cn/xgsz/xfjs.htm)\n- [招生就业](https://xwx.qcuwh.edu.cn/zsjy/zsxx.htm)\n- [新闻视界](https://xwx.qcuwh.edu.cn/xwsj.htm)\n- [下载专区](https://xwx.qcuwh.edu.cn/xzzhuan.htm)\n- [通知公告](https://xwx.qcuwh.edu.cn/index/tzgg.htm)\n- [学院新闻](https://xwx.qcuwh.edu.cn/index/xyxw.htm)\n- [学院简介](https://xwx.qcuwh.edu.cn/xygk/xyjj.htm)\n\n\n### 1.8 设计工程学院\n\n- **学院官方主页**：[https://design.qcuwh.edu.cn/](https://design.qcuwh.edu.cn/)\n- **开设核心专业**：环境设计、视觉传达设计、数字媒体艺术、产品设计\n- **学院简介**：设计工程学院涵盖环境设计、视觉传达设计、数字媒体艺术、产品设计等方向，师生作品屡获“米兰设计周”、全国高校数字艺术双年展国家级大奖。\n\n**官方网站大标题与直达导航栏目**：\n\n- [设计工程学院](https://design.qcuwh.edu.cn/index.htm)\n- [学院首页](https://design.qcuwh.edu.cn/index.htm)\n- [学院概况](https://design.qcuwh.edu.cn/xygk.htm)\n- [学院简介](https://design.qcuwh.edu.cn/xygk/xyjj.htm)\n- [现任领导](https://design.qcuwh.edu.cn/xygk/xrld.htm)\n- [专业设置](https://design.qcuwh.edu.cn/xygk/zysz.htm)\n- [师资队伍](https://design.qcuwh.edu.cn/szdw.htm)\n- [教师风采](https://design.qcuwh.edu.cn/szdw/jsfc.htm)\n- [特聘教授](https://design.qcuwh.edu.cn/szdw/tpjs.htm)\n- [教学科研](https://design.qcuwh.edu.cn/jxky.htm)\n- [学术讲座](https://design.qcuwh.edu.cn/jxky/xsjz.htm)\n- [学科竞赛](https://design.qcuwh.edu.cn/jxky/xkjs.htm)\n\n\n### 1.9 马克思主义学院\n\n- **学院官方主页**：[https://ggkb.qcuwh.edu.cn](https://ggkb.qcuwh.edu.cn)\n- **开设核心专业**：思想政治理论课教学与思政科研\n- **学院简介**：承担全校思想政治理论课教学、科研与马克思主义理论学科建设任务，推进习近平新时代中国特色社会主义思想“三进”工作。\n\n**官方网站大标题与直达导航栏目**：\n\n- [首页](https://ggkb.qcuwh.edu.cn/index.htm)\n- [学院简介](https://ggkb.qcuwh.edu.cn/xyjj/mkszyxyjj.htm)\n- [马克思主义学院简介](https://ggkb.qcuwh.edu.cn/xyjj/mkszyxyjj.htm)\n- [马克思主义学院院长简介](https://ggkb.qcuwh.edu.cn/xyjj/mkszyxyyzjj.htm)\n- [组织机构](https://ggkb.qcuwh.edu.cn/xyjj/zzjg.htm)\n- [联系方式](https://ggkb.qcuwh.edu.cn/xyjj/lxfs.htm)\n- [部门动态](https://ggkb.qcuwh.edu.cn/bmdt.htm)\n- [新闻动态](https://ggkb.qcuwh.edu.cn/bmdt/xwdt.htm)\n- [通知公告](https://ggkb.qcuwh.edu.cn/bmdt/tzgg.htm)\n- [党建工作](https://ggkb.qcuwh.edu.cn/bmdt/djgz.htm)\n- [师资队伍](https://ggkb.qcuwh.edu.cn/szdw.htm)\n- [教师风采](https://ggkb.qcuwh.edu.cn/szdw/jsfc.htm)\n\n\n### 1.10 基础课部\n\n- **学院官方主页**：[https://jckb.qcuwh.edu.cn/](https://jckb.qcuwh.edu.cn/)\n- **开设核心专业**：高等数学教研室、大学英语教研室、大学物理教研室、体育教研室\n- **学院简介**：负责全校高等数学、大学英语、大学物理、体育等通识基础学科的教学与通识课程改革建设。\n\n**官方网站大标题与直达导航栏目**：\n\n- [网站首页](https://jckb.qcuwh.edu.cn/index.htm)\n- [课部简介](https://jckb.qcuwh.edu.cn/xbjj/jckbjj.htm)\n- [部门动态](https://jckb.qcuwh.edu.cn/bmdt/xwdt.htm)\n- [师资队伍](https://jckb.qcuwh.edu.cn/szdw/gsjys.htm)\n- [教学管理](https://jckb.qcuwh.edu.cn/jxgl/sxzh.htm)\n- [科学研究](https://jckb.qcuwh.edu.cn/kxyj/xmsb.htm)\n- [常用下载](https://jckb.qcuwh.edu.cn/cyxz/bgxz.htm)\n- [基础课部简介](https://jckb.qcuwh.edu.cn/xbjj/jckbjj.htm)\n- [课部负责人](https://jckb.qcuwh.edu.cn/xbjj/kbfzr.htm)\n- [课部党支部书记](https://jckb.qcuwh.edu.cn/xbjj/kbdzbsj.htm)\n- [组织架构](https://jckb.qcuwh.edu.cn/xbjj/zzjg.htm)\n- [优秀成果](https://jckb.qcuwh.edu.cn/xbjj/yxcg.htm)\n\n\n## 2. 党政机构（职能部处与服务大厅）\n\n- **机构主页**：[https://www.qcuwh.edu.cn/jgsz/dzjg.htm](https://www.qcuwh.edu.cn/jgsz/dzjg.htm)\n\n### 2.1 学校办公室（发展规划办、保密办、校友办）\n\n- **官方网站**：[http://xxbgs.qcuwh.edu.cn/](http://xxbgs.qcuwh.edu.cn/)\n- **主要职能**：综合协调、公文处理、督查督办、对外联络、保密与法律事务。\n\n### 2.2 党委组织部（党校、统战部）\n\n- **官方网站**：[https://dqgzb.qcuwh.edu.cn/](https://dqgzb.qcuwh.edu.cn/)\n- **主要职能**：干部选拔任用、基层党组织建设、党员教育管理、统战与党校培训。\n\n### 2.3 纪检监察办公室\n\n- **官方网站**：[https://dqgzb.qcuwh.edu.cn/](https://dqgzb.qcuwh.edu.cn/)\n- **主要职能**：党风廉政建设、党纪国法监督执行、效能监察与信访举报受理。\n\n### 2.4 党委宣传部（新闻中心）\n\n- **官方网站**：[http://news.qcuwh.cn/](http://news.qcuwh.cn/)\n- **主要职能**：意识形态工作、新闻宣传、校园网新闻、形象推广与新媒体运营。\n\n### 2.5 教务处\n\n- **官方网站**：[https://jw.qcuwh.edu.cn](https://jw.qcuwh.edu.cn)\n- **主要职能**：本科教学运行、专业设置、选课退课、考试组织、学籍管理、教学质量监控。\n\n### 2.6 教师工作部、人事处（教师发展中心）\n\n- **官方网站**：[https://rsc.qcuwh.edu.cn](https://rsc.qcuwh.edu.cn)\n- **主要职能**：人才引进、师资队伍建设、职称评审、教师培训、薪酬福利与社保。\n\n### 2.7 学生工作部（处）、人民武装部\n\n- **官方网站**：[https://xgc.qcuwh.edu.cn](https://xgc.qcuwh.edu.cn)\n- **主要职能**：学生日常思政教育、辅导员队伍建设、奖助学金评审、国防动员与征兵。\n\n### 2.8 招生办公室\n\n- **官方网站**：[https://zs.qcuwh.edu.cn/](https://zs.qcuwh.edu.cn/)\n- **主要职能**：各省普通高考招生政策、招生计划编制、历年录取分数线咨询与录取工作。\n\n### 2.9 就业指导与服务中心\n\n- **官方网站**：[https://qcuwh.91wllm.cn/](https://qcuwh.91wllm.cn/)\n- **主要职能**：毕业生就业推荐、校园招聘会组织、三方协议办理、就业创业政策指导。\n\n### 2.10 创新创业学院\n\n- **官方网站**：[https://cxxy.qcuwh.edu.cn/index.htm](https://cxxy.qcuwh.edu.cn/index.htm)\n- **主要职能**：创新创业教育、学科竞赛组织（互联网+、挑战杯）、众创空间孵化。\n\n### 2.11 财务处\n\n- **官方网站**：[https://cwc.qcuwh.edu.cn](https://cwc.qcuwh.edu.cn)\n- **主要职能**：学杂费收缴、财务预算管理、报销审核、发放工资、科研经费核算。\n\n### 2.12 教学质量管理处（评估中心）\n\n- **官方网站**：[https://pgzx.qcuwh.edu.cn](https://pgzx.qcuwh.edu.cn)\n- **主要职能**：教学评估、合格评估推进、教学督导、教学状态数据采集与质评报告。\n\n### 2.13 科研处（学科建设办公室）\n\n- **官方网站**：[https://kyc.qcuwh.edu.cn](https://kyc.qcuwh.edu.cn)\n- **主要职能**：各级科研项目申报、产学研协同、知识产权与专利管理、重点学科建设。\n\n### 2.14 实验室管理中心\n\n- **官方网站**：[https://lab.qcuwh.edu.cn](https://lab.qcuwh.edu.cn)\n- **主要职能**：教学科研实验室规划、大型仪器设备共享、实验室安全生产管理。\n\n### 2.15 资产设备管理处（招投标办公室）\n\n- **官方网站**：[https://zgc.qcuwh.edu.cn/](https://zgc.qcuwh.edu.cn/)\n- **主要职能**：国有资产管理、仪器设备物资采购、基建与工程项目招投标。\n\n### 2.16 网络信息中心\n\n- **官方网站**：[https://nic.qcuwh.edu.cn](https://nic.qcuwh.edu.cn)\n- **主要职能**：校园网络运维、数字化校园建设、一卡通系统运维、数据中心管理。\n\n### 2.17 后勤保卫处（保障服务中心）\n\n- **官方网站**：[https://hqc.qcuwh.edu.cn/](https://hqc.qcuwh.edu.cn/)\n- **主要职能**：校园治安综治、消防安全、户籍管理、餐饮食堂、物业维保、水电绿化。\n\n### 2.18 大学生心理健康教育中心\n\n- **官方网站**：[https://xljk.qcuwh.edu.cn/](https://xljk.qcuwh.edu.cn/)\n- **主要职能**：心理危机干预、心理咨询预约、心理健康测评、心理育人特色活动。\n\n## 3. 直属单位\n\n- **机构主页**：[https://www.qcuwh.edu.cn/jgsz/zsdw.htm](https://www.qcuwh.edu.cn/jgsz/zsdw.htm)\n\n### 3.1 图书馆\n\n- **官方网站**：[https://tsg.qcuwh.edu.cn](https://tsg.qcuwh.edu.cn)\n- **单位职能**：馆藏纸质图书130余万册、电子图书200余万种，提供自习借阅、文献检索与学科服务。\n\n### 3.2 网络信息中心\n\n- **官方网站**：[https://nic.qcuwh.edu.cn](https://nic.qcuwh.edu.cn)\n- **单位职能**：全校教育信息化与数据中台保障单位。\n\n### 3.3 继续教育学院（国际教育学院）\n\n- **官方网站**：[https://jjy.qcuwh.edu.cn](https://jjy.qcuwh.edu.cn)\n- **单位职能**：高等学历继续教育、自学考试衔接、出国留学咨询与职业技能鉴定培训。\n\n### 3.4 实验室管理中心\n\n- **官方网站**：[https://lab.qcuwh.edu.cn](https://lab.qcuwh.edu.cn)\n- **单位职能**：管理校级公共基础实验教学平台与实训中心。\n\n### 3.5 保障服务中心\n\n- **官方网站**：[https://bzzx.qcuwh.edu.cn/](https://bzzx.qcuwh.edu.cn/)\n- **单位职能**：为师生教学生活提供物业、交通班车、快递与餐饮服务保障。\n\n### 3.6 晴川艺术团\n\n- **官方网站**：[https://art.qcuwh.edu.cn/](https://art.qcuwh.edu.cn/)\n- **单位职能**：学校最高规格大学生美育与文艺演出团体，含声乐、器乐、舞蹈、主持团。\n\n### 3.7 评估与建设网\n\n- **官方网站**：[https://pgw.qcuwh.edu.cn/](https://pgw.qcuwh.edu.cn/)\n- **单位职能**：本科教学工作合格评估专网与建设纪实。\n\n### 3.8 学校信息公开网\n\n- **官方网站**：[https://xxgk.qcuwh.edu.cn/](https://xxgk.qcuwh.edu.cn/)\n- **单位职能**：依法依规公开学校办学信息、财务数据、人事招聘等信息。\n\n## 4. 群团组织\n\n- **机构主页**：[https://www.qcuwh.edu.cn/jgsz/qtzz.htm](https://www.qcuwh.edu.cn/jgsz/qtzz.htm)\n\n### 4.1 工会之家\n\n- **官方网站**：[https://dqgzb.qcuwh.edu.cn/ghgz1/ghgz.htm](https://dqgzb.qcuwh.edu.cn/ghgz1/ghgz.htm)\n- **组织职能**：依法维护教职工合法权益，开展文体活动、困难帮扶与教代会提案办理。\n\n### 4.2 校团委\n\n- **官方网站**：[https://ytw.qcuwh.edu.cn](https://ytw.qcuwh.edu.cn)\n- **组织职能**：共青团武汉晴川学院委员会，指导校学生会、青年志愿者协会、学生社团联合会及团学组织活动。\n\n### 4.3 校友会\n\n- **官方网站**：[https://xyh.qcuwh.edu.cn/](https://xyh.qcuwh.edu.cn/)\n- **组织职能**：联络全球晴川校友，搭建校友与母校合作平台，赋能校友成长与学校发展。",
+            "url": "https://jkx.qcuwh.edu.cn",
+            "evidence_text": "学院下设软件工程、计算机科学与技术、物联网工程、数据科学与大数据技术、人工智能等本科专业，建有腾讯云人工智能产业学院。\n开设核心专业：计算机科学与技术、软件工程、物联网工程、数据科学与大数据技术、人工智能",
+            "images": [],
+            "section_id": "campus_organizations:2"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "学院下设软件工程、计算机科学与技术、物联网工程、数据科学与大数据技术、人工智能等本科专业，建有腾讯云人工智能产业学院。",
+            "score": 1.7844
+          },
+          {
+            "citation_index": 1,
+            "text": "开设核心专业：计算机科学与技术、软件工程、物联网工程、数据科学与大数据技术、人工智能",
+            "score": 1.6733
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "人工智能",
+          "软件工程",
+          "计算机科学与技术"
+        ],
+        "expected_sources": [],
+        "expected_source_alternatives": [
+          "campus_organizations"
+        ],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 250.76750002335757
+      },
+      {
+        "id": "answer_42",
+        "question": "图书馆老师可以借几本？",
+        "history": [],
+        "answer": "🎯【核心解答】\n• 在职教职员工：每人限借 30 册图书。 [1]",
+        "citations": [
+          {
+            "index": 1,
+            "source": "library",
+            "doc_name": "武汉晴川学院图书馆规章与借阅服务制度",
+            "title": "3. 图书借还与流通规则",
+            "preview": "3. 图书借还与流通规则\n1. 借书权限与额度：\n   - 全日制在校本专科学生：每人限借 10 册图书；\n   - 在职教职员工：每人限借 30 册图书。\n2. 借阅期限与续借规则：\n   - 借阅期限：普通图书借期为 30 天（教职工 60 天）；\n   - 续借规定：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号在线续借 1 ",
+            "full_text": "## 3. 图书借还与流通规则\n1. **借书权限与额度**：\n   - 全日制在校本专科学生：**每人限借 10 册图书**；\n   - 在职教职员工：每人限借 30 册图书。\n2. **借阅期限与续借规则**：\n   - **借阅期限**：普通图书借期为 **30 天**（教职工 60 天）；\n   - **续借规定**：在图书未逾期且无人预约的前提下，借阅期满前读者可在图书馆网站或微信服务号**在线续借 1 次，续借期限为 30 天**（最长可连续持有 60 天）。",
+            "url": "https://tsg.qcuwh.edu.cn",
+            "evidence_text": "在职教职员工：每人限借 30 册图书。",
+            "images": [],
+            "section_id": "library:3"
+          }
+        ],
+        "evidence": [
+          {
+            "citation_index": 1,
+            "text": "在职教职员工：每人限借 30 册图书。",
+            "score": 0.7218
+          }
+        ],
+        "refused": false,
+        "clarification": false,
+        "expected_refusal": false,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [
+          "30册"
+        ],
+        "expected_sources": [
+          "library"
+        ],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 1.0,
+        "evidence_fact_support": 1.0,
+        "source_coverage": 1.0,
+        "citation_alignment": 1.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 179.84070000238717
+      },
+      {
+        "id": "answer_43",
+        "question": "图书馆研究生能借多少册？",
+        "history": [],
+        "answer": "现有知识库没有找到能直接回答这个问题的明确依据。请补充具体事项，或向相关部门核实。",
+        "citations": [],
+        "evidence": [],
+        "refused": true,
+        "clarification": false,
+        "expected_refusal": true,
+        "partial": false,
+        "expected_partial": false,
+        "sub_answers": [],
+        "subanswer_coverage": null,
+        "expected_clarification": false,
+        "expected_facts": [],
+        "expected_sources": [],
+        "expected_source_alternatives": [],
+        "lexical_fact_coverage": 0.0,
+        "evidence_fact_support": 0.0,
+        "source_coverage": 0.0,
+        "citation_alignment": 0.0,
+        "numeric_claim_support": 1.0,
+        "passed": true,
+        "latency_ms": 177.79210000298917
+      }
+    ]
+  }
+}

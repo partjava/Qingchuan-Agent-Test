@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>晴川 · 校园 RAG 智能问答与 3D 地图标注系统</title>
+
+    <!-- 抽离独立的模块化样式表 -->
+
+    <link rel="stylesheet" href="/static/css/chat.css?v=20261021_v2">
+    <link rel="stylesheet" href="/static/css/agent.css?v=20261023_history">
+
+</head>
+
+<body>
+
+
+
+    <!-- 顶部导航栏 -->
+
+    <header>
+
+        <div class="brand">
+
+            <div class="brand-logo">晴</div>
+
+            <div class="brand-title">晴川 · 校园 RAG 智能问答与 3D 地图标注系统</div>
+
+        </div>
+
+        <div class="header-actions">
+
+            <button class="btn-header" onclick="openDeepSeekModal()">🤖 大模型接入配置</button>
+
+            <button class="btn-header" onclick="openHistoryModal()">📜 数据库历史</button>
+
+            <button id="kb-stats-btn" class="btn-header" onclick="openKbStatsModal()">📚 知识库概况</button>
+
+            <button class="btn-header" onclick="openBenchmarkModal()">📊 评测报表</button>
+
+            <button class="btn-header primary" onclick="syncNews()">🔄 增量同步官网</button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- 分屏主体 (左 70% 3D 沙盘，右 30% AI 对话) -->
+
+    <div class="main-container">
+
+
+
+        <!-- 左侧 3D 校园地图视口 -->
+
+        <div class="map-section">
+
+            <button id="map-fullscreen-btn" class="map-fs-btn" onclick="toggleMapFullscreen()" title="切换全屏沙盘视口">⛶ 全屏沙盘</button>
+
+            <iframe id="map-frame" class="map-iframe" src="/static/campus3d/index.html?v=20261022_layout_fix"></iframe>
+
+            <div class="map-quick-bar">
+
+                <span>📍 3D 地标直达：</span>
+
+                <div class="landmark-chip" onclick="flyTo('south_gate', this)">🚪 南大门 (正门朝下)</div>
+
+                <div class="landmark-chip" onclick="flyTo('library', this)">📚 晴川图书馆</div>
+
+                <div class="landmark-chip" onclick="flyTo('lake', this)">🌊 惜缘湖</div>
+
+                <div class="landmark-chip" onclick="flyTo('stadium', this)">⚽ 田径场</div>
+
+                <div class="landmark-chip" onclick="flyTo('gym', this)">🏀 体育馆</div>
+
+                <div class="landmark-chip" onclick="flyTo('teach_1', this)">🎓 教1栋</div>
+
+                <div class="landmark-chip" onclick="flyTo('teach_2', this)">🎓 教2栋</div>
+
+                <div class="landmark-chip" onclick="flyTo('teach_3', this)">🎓 教3栋</div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 右侧 AI 智能问答面板 -->
+
+        <div class="chat-section">
+
+
+
+            <div class="agent-mode-switch">
+                <div class="agent-mode-buttons"><span>使用方式</span>
+                    <button id="agent-mode-normal" class="active" aria-pressed="true" onclick="CampusAgentUI.setActive(false)">普通问答</button>
+                    <button id="agent-mode-agent" aria-pressed="false" onclick="CampusAgentUI.setActive(true)">智能办事</button>
+                </div>
+                <p id="agent-mode-note" aria-live="polite">普通问答：使用现有检索、证据回答和地图联动。</p>
+                <div id="agent-examples" hidden>
+                    <button onclick="sendQuick('从南大门出发去图书馆还书，先查询借还时间，再安排示意路线。')">还书与路线</button>
+                    <button onclick="sendQuick('明天下午要还书并咨询选课，帮我查询条件，不确定的事项请说明。')">多事项办理</button>
+                </div>
+            </div>
+            <!-- 模式选择与模型状态 -->
+
+            <div class="mode-bar">
+
+                <div class="mode-bar-left">
+
+                    <span id="retrieval-label" class="mode-bar-label" title="切换底座检索算法，对比不同模型返回效果">🔍 检索内核：</span>
+
+                    <div id="retrieval-controls" class="mode-tabs">
+
+                        <button class="mode-tab active" data-mode="hybrid" aria-pressed="true" onclick="setMode('hybrid')" title="加权 RRF 召回、专题知识路由与证据精排">⚡ 混合检索与精排</button>
+
+                        <button class="mode-tab" data-mode="bge" aria-pressed="false" onclick="setMode('bge')" title="BAAI/bge-small-zh 神经网络深度语义向量">🧠 BGE 稠密语义</button>
+
+                        <button class="mode-tab" data-mode="tfidf" aria-pressed="false" onclick="setMode('tfidf')" title="字符 1–2 gram TF-IDF 余弦相似度">📊 TF-IDF 统计词频</button>
+
+                    </div>
+
+                    <div class="layout-switcher">
+
+                        <span class="layout-label">分屏：</span>
+
+                        <button class="layout-btn active" onclick="setLayoutRatio('6-4', this)" title="3D 地图优先 (6:4)">6:4</button>
+
+                        <button class="layout-btn" onclick="setLayoutRatio('5-5', this)" title="双屏对称 (5:5)">5:5</button>
+
+                        <button class="layout-btn" onclick="setLayoutRatio('4-6', this)" title="问答优先 (4:6)">4:6</button>
+
+                    </div>
+
+                </div>
+
+                <div class="mode-bar-right">
+
+                    <button id="rerun-last-btn" class="export-chat-btn" onclick="rerunLastQuestion()" disabled>用当前方式重新回答上一题</button>
+
+                    <button class="export-chat-btn" onclick="exportChatMarkdown()" title="一键导出测试问答记录至 Markdown 文件，供测试报告归档使用">💾 导出记录</button>
+
+                    <button class="btn-new-window" onclick="startNewChatWindow()" title="开启全新独立对话窗口，重置多轮上下文">➕ 新建窗口</button>
+                    <button class="clear-chat-btn" onclick="clearChatStream()" title="清空对话流，开启新话题">🗑️ 清空记录</button>
+
+                    <div id="model-pill" class="model-status-pill" onclick="openDeepSeekModal()" title="点击切换或配置 DeepSeek 大模型">
+
+                        ✨ 晴川本地引擎
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <p id="mode-explanation" class="mode-explanation" aria-live="polite">结合关键词精确匹配与 BGE 语义向量召回，经加权 RRF 融合后按事实证据与槽位精排。兼顾专名定位与口语泛化，综合命中率最高。（只对新提问有效）</p>
+
+
+
+            <!-- 推荐快捷问题 (涵盖四大知识库与红色路线规划) -->
+
+            <div class="suggestions">
+
+                <div class="sugg-chip route" onclick="sendQuick('从南大门怎么走到晴川图书馆？')">🚩 红色轨迹：正大门 ➔ 图书馆</div>
+
+                <div class="sugg-chip route" onclick="sendQuick('教1栋去一食堂怎么走？')">🚶 红色轨迹：教1栋 ➔ 一食堂</div>
+
+                <div class="sugg-chip" onclick="sendQuick('大广赛晴川学院获得了什么奖项？')">🏆 大广赛获奖报道 (带现场配图)</div>
+
+                <div class="sugg-chip" onclick="sendQuick('董事长汪彬教授最近视察调研了什么工作？')">📰 汪彬校长调研动态</div>
+
+                <div class="sugg-chip" onclick="sendQuick('教务处和学校办公室电话是多少？')">📞 全校办公电话黄页</div>
+
+                <div class="sugg-chip" onclick="sendQuick('2026年中秋节和国庆节放假如何安排？')">🏖️ 节假日放假安排通知</div>
+
+                <div class="sugg-chip" onclick="sendQuick('人工智能微专业什么时候招生？')">🤖 人工智能微专业培养</div>
+
+                <div class="sugg-chip" onclick="sendQuick('退改选什么时候截止？错过还能修改吗？')">📋 选课退改选截止时间</div>
+
+            </div>
+
+
+
+            <!-- 聊天流 -->
+
+            <div class="chat-stream" id="chat-stream">
+
+                <div class="msg-row ai">
+
+                    <div class="avatar ai">晴</div>
+
+                    <div class="bubble agent-welcome">
+
+                        <div class="provider-tag">✨ 晴川校园 RAG 智能问答系统</div>
+
+                        <div class="lead-line">同学你好！我是晴川校园智能问答助手。</div>
+
+                        <p class="ans-body">
+
+                            系统现已接入<b>晴川官网全维度 16 大权威知识库</b>（全量爬取涵盖学校要闻、通知公告、教育教学、媒体关注、信息公开、学校概况、机构设置、校园文化与管理规章等），收录 <b>3,091 篇权威图文资讯、1,569 张现场实拍与 {{KB_TOTAL_CHUNKS}} 个语义文本块</b>！<br>
+
+                            支持 <b>3D 校园沙盘联动</b>（支持自动规划绘制<b>红色导航路线轨迹</b>与镜头带路），并已预置 <b>DeepSeek V4.1 Flash（deepseek-flash）生成接口</b>！<br>
+
+                            你可以直接向我提问校园政策、办事指南、各院系专业、新闻动态或输入路线规划！
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 底部输入框 -->
+
+            <div class="chat-input-bar">
+
+                <input type="text" id="user-input" class="input-box" placeholder="输入晴川政策、地标、电话或路线（如：南大门去图书馆怎么走）..." onkeydown="if(event.key==='Enter') sendMsg()">
+
+                <button id="mic-btn" class="mic-btn" onclick="toggleVoiceInput()" title="点击开启普通话语音识别输入">🎙️</button>
+
+                <button class="send-btn" onclick="sendMsg()">发送</button>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 大模型接入配置模态框 (云端 API / 本地 Ollama) -->
+
+    <div id="deepseek-modal" class="modal-mask" onclick="if(event.target===this) closeDeepSeekModal()">
+
+        <div class="modal-body" style="width: 760px;">
+
+            <div class="modal-title">
+
+                <span>🤖 大语言模型接入配置 (云端 API / 本地 Ollama)</span>
+
+                <span style="cursor: pointer;" onclick="closeDeepSeekModal()">✕</span>
+
+            </div>
+
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
+
+                本系统支持配置<b>云端大模型 API</b>（DeepSeek 官方或兼容 OpenAI 格式的反向代理端点）与<b>本地 Ollama 离线大模型</b>。未配置或生成核验不通过时，系统自动安全回退至<b>本地知识库证据原句抽取</b>。
+
+            </p>
+
+
+
+            <!-- 模块 1：云端 AI 配置 -->
+
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 14px; margin-bottom: 14px;">
+
+                <div style="font-weight: 700; color: var(--primary); font-size: 13.5px; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+
+                    <span>☁️ 云端大模型配置 (DeepSeek 官方 / OpenAI 兼容端点)</span>
+
+                </div>
+
+                <div class="form-group" style="margin-bottom: 10px;">
+
+                    <label>云端 API Base URL (端点)：</label>
+
+                    <input type="text" id="cfg-cloud-url" class="form-control" placeholder="https://api.deepseek.com (支持 SiliconFlow / OneAPI / 任意中转站)">
+
+                </div>
+
+                <div class="form-group" style="margin-bottom: 10px;">
+
+                    <label>API Key：</label>
+
+                    <input type="password" id="cfg-deepseek-key" class="form-control" placeholder="sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx (保存在本地浏览器)">
+
+                </div>
+
+                <div class="form-group" style="margin-bottom: 10px;">
+
+                    <label>模型名称 (Model)：</label>
+
+                    <input type="text" id="cfg-deepseek-model" class="form-control" placeholder="deepseek-flash (默认) 或 deepseek-chat, gpt-4o 等">
+
+                </div>
+
+                <label class="thinking-control" style="margin-top: 4px; display: flex; align-items: center; gap: 6px; font-size: 12.5px;">
+
+                    <input type="checkbox" id="cfg-deepseek-thinking"> 开启深度思考（DeepSeek 思考模式，默认关闭）
+
+                </label>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border);">
+
+                    <span id="test-cloud-status" style="font-size: 12.5px; max-width: 500px; word-break: break-all;"></span>
+
+                    <button id="test-cloud-btn" class="btn-header" onclick="testCloudApi()" title="向填写的云端 API 发送连通性测试">🔌 测试云端连接</button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 模块 2：本地 Ollama AI 配置 -->
+
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 14px; margin-bottom: 14px;">
+
+                <div style="font-weight: 700; color: #1e40af; font-size: 13.5px; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+
+                    <span>🖥️ 本地离线大模型配置 (Ollama)</span>
+
+                </div>
+
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; cursor: pointer; margin-bottom: 10px; color: #1e3a8a;">
+
+                    <input type="checkbox" id="cfg-use-ollama"> 优先启用本地 Ollama 引擎（勾选后优先使用本地大模型生成，完全脱机运行）
+
+                </label>
+
+                <div class="form-group" style="margin-bottom: 10px;">
+
+                    <label>本地 Ollama 服务地址：</label>
+
+                    <input type="text" id="cfg-ollama-url" class="form-control" placeholder="http://localhost:11434">
+
+                </div>
+
+                <div class="form-group" style="margin-bottom: 10px;">
+
+                    <label>本地模型名称：</label>
+
+                    <input type="text" id="cfg-ollama-model" class="form-control" placeholder="deepseek-r1:latest (或 qwen2.5:7b, llama3 等)">
+
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border);">
+
+                    <span id="test-ollama-status" style="font-size: 12.5px; max-width: 500px; word-break: break-all;"></span>
+
+                    <button id="test-ollama-btn" class="btn-header" onclick="testOllama()" title="探测本地 Ollama 服务是否在线并检查指定模型">🖥️ 测试本地 Ollama 连接</button>
+
+                </div>
+
+            </div>
+
+
+
+            <p id="cfg-model-migration" class="generation-notice" role="status"></p>
+
+            <p class="config-note">配置保存在浏览器本地 localStorage 中，点击保存对下一次提问生效。</p>
+
+            <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-top: 14px;">
+
+                <button class="btn-header config-clear-btn" onclick="clearDeepSeekConfig()">清空配置并切回本地抽取</button>
+
+                <button class="btn-header primary config-save-btn" onclick="saveDeepSeekConfig()">保存所有配置</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SQLite 数据库历史问答与审计模态框 -->
+
+    <div id="history-modal" class="modal-mask" onclick="if(event.target===this) closeHistoryModal()">
+        <div class="modal-body history-modal-window" style="width: 1060px; max-width: 95vw; height: 82vh; max-height: 740px; display: flex; flex-direction: column;">
+            <div class="modal-title" style="margin-bottom: 6px;">
+                <span>📜 SQLite 数据库问答历史与多会话窗口管理</span>
+                <span style="cursor: pointer;" onclick="closeHistoryModal()">✕</span>
+            </div>
+            <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 10px;">
+                左侧为每次独立的对话窗口（按会话聚合），右侧为该窗口内记录的多次连续聊天消息与多轮上下文。
+            </p>
+            <div id="history-container" style="flex: 1; min-height: 0; display: flex; gap: 12px; border: 1px solid var(--border); border-radius: 8px; background: #ffffff; padding: 10px; overflow: hidden;">
+                <!-- 左栏：窗口列表 -->
+                <div id="history-sessions-col" class="history-sessions-col">
+                    <div style="text-align: center; color: var(--text-muted); padding: 30px;">正在加载窗口列表...</div>
+                </div>
+                <!-- 右栏：该窗口内多次问答详情 -->
+                <div id="history-turns-col" class="history-turns-col">
+                    <div style="text-align: center; color: var(--text-muted); padding: 30px;">请选择左侧窗口查看聊天消息</div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; flex-shrink: 0;">
+                <span id="history-total-count" style="font-size: 12.5px; color: var(--text-muted);"></span>
+                <div style="display: flex; gap: 8px;">
+                    <button class="btn-header" style="background: #ecfdf5; color: #047857; border-color: #a7f3d0;" onclick="startNewChatWindow(true)">➕ 新建对话窗口</button>
+                    <button class="btn-header" onclick="refreshHistoryList()">🔄 刷新列表</button>
+                    <button class="btn-header" style="color: #e53e3e; border-color: #feb2b2;" onclick="clearDbHistory()">🗑️ 清空所有数据库历史</button>
+                    <button class="btn-header primary" onclick="closeHistoryModal()">完成并返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 知识库统计模态框 -->
+
+    <div id="stats-modal" class="modal-mask" onclick="if(event.target===this) closeKbStatsModal()">
+
+        <div class="modal-body">
+
+            <div class="modal-title">
+
+                <span>📚 晴川官方本地知识库概览</span>
+
+                <span style="cursor: pointer;" onclick="closeKbStatsModal()">✕</span>
+
+            </div>
+
+            <p style="font-size: 13px; color: var(--text-muted);">
+
+                全部数据抓取自晴川官网（www.qcuwh.cn）与信息公开网（xxgk.qcuwh.edu.cn）并沉淀到本地，建立了十六个权威知识库与办公黄页：
+
+            </p>
+
+            <div class="stats-grid" id="kb-stats-container">
+
+                <div class="stats-card">
+
+                    <strong>📰 学校要闻全量知识库</strong><br>
+
+                    <span>收录 2,281 篇要闻（209页全部扒光），703 张现场高清配图</span>
+
+                </div>
+
+                <div class="stats-card">
+
+                    <strong>📢 通知公告全量知识库</strong><br>
+
+                    <span>收录 307 篇校务通知，175 张配图</span>
+
+                </div>
+
+                <div class="stats-card">
+
+                    <strong>🎓 教育教学知识库</strong><br>
+
+                    <span>收录 248 篇教学建设成果，311 张配图</span>
+
+                </div>
+
+                <div class="stats-card">
+
+                    <strong>📺 媒体关注知识库</strong><br>
+
+                    <span>收录 255 篇主流媒体报道，380 张配图</span>
+
+                </div>
+
+                <div class="stats-card">
+
+                    <strong>📑 信息公开权威全息库</strong><br>
+
+                    <span>收录 260 篇信息公开报告与十大类公开文件，2,743 个语义块</span>
+
+                </div>
+
+                <div class="stats-card">
+
+                    <strong>🏛️ 学校概况与荣誉全息库</strong><br>
+
+                    <span>涵盖简介、领导班子、规划、文化标识及 33 篇荣誉全息新闻</span>
+
+                </div>
+
+                <div class="stats-card">
+
+                    <strong>🌐 机构设置与各院系大标题直达</strong><br>
+
+                    <span>收录 10 大学系导航超链接、18 个部处室、直属单位与群团</span>
+
+                </div>
+
+                <div class="stats-card">
+
+                    <strong>🎭 校园文化与品牌育人库</strong><br>
+
+                    <span>收录“仁爱·尚美”文化体系、16 大特色文化品牌与 34 个学生社团</span>
+
+                </div>
+
+                <div class="stats-card">
+
+                    <strong>📞 办公电话黄页知识库</strong><br>
+
+                    <span>收录 31 个校级机关、二级学院与职能部门直达座机</span>
+
+                </div>
+
+                <div class="stats-card">
+
+                    <strong>🗺️ 3D 校园地标与生活导览</strong><br>
+
+                    <span>收录 37 处地标，联动 3D 渲染与自动红色轨迹路线规划</span>
+
+                </div>
+
+            </div>
+
+            <div style="margin-top: 14px; font-size: 12px; color: var(--text-muted);">
+
+                总文本语义切块：<strong>{{KB_TOTAL_CHUNKS}} 块</strong> | 知识库全息文档：<strong>16 份</strong> | 配图总计：<strong>1,569 张</strong>（均落盘于 data/images/ 目录）
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 评测报表模态框 -->
+
+    <div id="modal-mask" class="modal-mask" onclick="if(event.target===this) closeBenchmarkModal()">
+
+        <div class="modal-body">
+
+            <div class="modal-title">
+
+                <span>📊 晴川 RAG 检索系统基准对比评测报表</span>
+
+                <span style="cursor: pointer;" onclick="closeBenchmarkModal()">✕</span>
+
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+
+                <p style="font-size: 13px; color: var(--text-muted); margin: 0;">
+
+                    对比答案级参考事实检查与原有26道本地检索测试。所有数字从已生成的评测文件读取，指标定义和题集范围不同。
+
+                </p>
+
+                <button class="btn-header" onclick="copyBenchmarkMarkdown()" style="background: #eaf3ef; color: #1e5a44; border-color: #1e5a44; flex-shrink: 0;" title="复制 Markdown 表格以粘贴至测试报告">
+
+                    📋 复制 Markdown 评测表
+
+                </button>
+
+            </div>
+
+
+
+            <!-- 可视化柱状对比图 -->
+
+            <div id="answer-benchmark-summary" class="query-analysis">正在读取答案级评测结果…</div>
+
+            <div id="benchmark-visual-container" class="benchmark-visual-grid"></div>
+
+
+
+            <table class="modal-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>检索模型架构</th>
+
+                        <th>Hit@1 命中率</th>
+
+                        <th>Hit@3 命中率</th>
+
+                        <th>Hit@5 命中率</th>
+
+                        <th>MRR (平均倒数排名)</th>
+
+                        <th>NDCG@3 (排序增益)</th>
+
+                        <th>NDCG@5 (排序增益)</th>
+
+                        <th>平均检索延迟</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="benchmark-tbody">
+
+                    <tr><td colspan="8">正在加载评测数据...</td></tr>
+
+                </tbody>
+
+            </table>
+
+            <div style="margin-top: 16px; padding: 12px; background: var(--bg-gray); border-radius: 8px; font-size: 13px; line-height: 1.6;">
+
+                <strong>💡 如何阅读结果</strong>：<br>
+
+                检索命中按目标知识库类别判断，同样正确的其他来源也可能不计命中。MRR截断在前5条，NDCG按首次目标命中的单相关项假设计算。<br>
+
+                答案级检查另外核对参考事实、证据编号和数字依据；它仍是小样本回归检查，不能外推为所有真实问题的准确率。<br>
+
+                不预设某种方法始终最优，请结合逐题结果和实际耗时比较。
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 知识溯源文献全息详情模态框 -->
+
+    <div id="citation-modal" class="modal-mask" onclick="if(event.target===this) closeCitationModal()">
+
+        <div class="modal-body citation-modal-body">
+
+            <div class="modal-title">
+
+                <span id="cite-modal-title">📜 知识溯源文献详情 · 依据 [1]</span>
+
+                <span style="cursor: pointer;" onclick="closeCitationModal()">✕</span>
+
+            </div>
+
+            <div class="citation-meta-box">
+
+                <div class="cite-meta-row">
+
+                    <span class="cite-meta-label">📚 所属知识库：</span>
+
+                    <span id="cite-modal-doc" class="cite-meta-val"></span>
+
+                </div>
+
+                <div class="cite-meta-row">
+
+                    <span class="cite-meta-label">📌 官方文献/条目标题：</span>
+
+                    <span id="cite-modal-article" class="cite-meta-val" style="font-weight: 600;"></span>
+
+                </div>
+
+                <div class="cite-meta-row" id="cite-modal-url-row">
+
+                    <span class="cite-meta-label">🔗 晴川官方原文：</span>
+
+                    <a id="cite-modal-link" href="#" target="_blank" rel="noopener noreferrer" class="cite-modal-url-btn">
+
+                        <span>在新窗口打开官网文章页面</span>
+
+                        <span>↗</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- 官方文献实拍抓取附图画廊 -->
+            <div id="cite-modal-gallery-box" class="citation-gallery-box" style="display: none;">
+                <div class="citation-gallery-title">📷 官方文献现场实拍与抓取配图：</div>
+                <div id="cite-modal-gallery-grid" class="citation-gallery-grid"></div>
+            </div>
+
+            <div class="citation-fulltext-title">📄 官方文献完整记录与上下文（杜绝截断与信息缺失）：</div>
+
+            <div id="cite-modal-fulltext" class="citation-fulltext-content"></div>
+
+            <div style="margin-top: 14px; display: flex; justify-content: flex-end; gap: 8px;">
+
+                <button class="btn-header" onclick="closeCitationModal()">关闭窗口</button>
+
+                <a id="cite-modal-footer-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-header primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+
+                    <span>🔗 在新标签页打开官网</span>
+
+                    <span>↗</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 抽离独立的模块化交互脚本 -->
+
+    <script src="/static/js/agent.js?v=20261023_history"></script>
+    <script src="/static/js/chat.js?v=20261023_history"></script>
+
+</body>
+
+</html>
+
