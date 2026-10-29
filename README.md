@@ -67,22 +67,78 @@ CLI 输入 `/clear` 清空上下文，输入 `exit` 退出。浏览器中的“�
 
 每条回答可展开“时间查询 / 申请条件等 · 已找到原文依据”，查看实际问句改写、用词调整及采用的原文。引用卡片保留原文弹窗与来源链接。
 
-## 评测与测试
+## 评测与自动化测试体系
+
+本项目针对智能体在垂直业务场景中的可靠性与稳定性，构建了完整的全生命周期测试体系。
+
+### 自动化测试套件矩阵（`tests/` 目录共 25 个测试文件）
+
+#### 一、 智能体与 LangGraph 调度测试（Agent 专项）
+专门测试多智能体决策、工具调用、状态流转和死循环熔断：
+- **`test_agent_graph.py`**：测试基于 LangGraph 构建的状态机图（StateGraph），验证节点流转、条件边分支选择、独立 Token 预算以及 8 步强制递归熔断。
+- **`test_agent_planner.py`**：测试智能体规划器（Planner），模拟真实 HTTP 交互，验证多步骤拆解是否合理。
+- **`test_agent_plan.py`**：测试智能体长链条规划的具体执行逻辑与证据整合。
+- **`test_campus_agent.py`**：智能体行为契约测试，验证智能体在面对校园办事任务时的工具调用序列。
+- **`test_agent_tools_store.py`**：测试智能体工具箱（Tools）与状态存储器（Store）的数据读写与工具执行。
+- **`test_agent_api.py`**：测试智能体对外暴露的后端 Web API 接口（`/api/agent/*`）。
+
+#### 二、 混合检索与 RAG 引擎测试（Retrieval & RAG 专项）
+测试双引擎检索算法、排名融合与问答管道：
+- **`test_hybrid_retriever.py`**：测试 Hybrid 混合检索器，验证 TF-IDF 字面分与 BGE 语义向量分的加权融合算法（RRF/加权平均）。
+- **`test_rag_pipeline.py`**：测试完整的 RAG 问答主流水线（端到端检索 $\rightarrow$ 证据筛选 $\rightarrow$ 提示词组装 $\rightarrow$ 生成）。
+- **`test_composite_pipeline.py`**：测试复合问题问答流（例如同时询问两项不同业务的交叉问题）。
+- **`test_canteen_location.py`**：专项测试食堂、宿舍等地理位置型问答的召回与定位精度。
+- **`test_topic_coverage.py`**：测试校本规章各个主题（奖助学金、选课、毕业、图书等）的检索覆盖率。
+
+#### 三、 意图理解、槽位抽取与证据链测试（NLU & Evidence 专项）
+测试对用户错别字、倒装口语的容错以及证据片段的真实性校验：
+- **`test_query_understanding.py`**：测试查询理解模块（分词、实体识别、意图分类）。
+- **`test_fact_slots.py`**：测试事实槽位提取器（从非结构化文本中精准抠出电话、时间、地点、金额等硬事实字段）。
+- **`test_evidence.py`**：测试证据重排序与证据段落提取，确保回答只引用高置信度官方段落。
+- **`test_article_reading.py`**：测试长篇规章制度文档（如章程、条例）的细粒度段落切分与局部阅读理解。
+
+#### 四、 接口契约与大模型客户端测试（API & Client 专项）
+测试前后端数据交互协议和大模型接口适配：
+- **`test_chat_schemas.py`**：基于 Pydantic 的接口契约测试（测试请求体字段校验、非法参数拦截、格式异常报错）。
+- **`test_deepseek_client.py`**：测试大模型 API 客户端封装（超时重试机制、Token 统计、流式输出解析与断网模拟）。
+- **`test_custom_ai_and_history.py`**：测试用户自定义大模型端点（支持切换第三方 API 或本地 Ollama）与历史记录管理。
+
+#### 五、 底层数据加载与向量缓存测试（Data & Cache 专项）
+测试离线数据处理与存储性能：
+- **`test_document_loader.py`**：测试校本 Markdown/文本知识库的清洗、切分与元数据加载。
+- **`test_embedding_cache.py`**：测试 BGE 向量离线缓存（`.npy` 和哈希校验），确保服务器启动时秒级加载已有向量，不重复编码。
+- **`test_db_manager.py`**：测试 SQLite 本地数据库的管理（问答日志存储、反馈打标、历史会话持久化）。
+- **`test_kb_display.py`**：测试前端展示的知识库文档数与语义块统计是否与底层实际加载量一致。
+
+#### 六、 评测与断言逻辑测试（Evaluation 专项）
+- **`test_answer_evaluate.py`**：测试评测脚本自身的准确性判定算法（如对比模型答案与标准答案时的 ROUGE/BLEU 评分及事实一致性打分逻辑）。
+
+#### 七、 前端 UI 自动化测试（Node.js 端）
+- **`test_chat_ui.cjs`**：使用 Node.js 针对对话界面的前端交互、气泡渲染、历史记录加载进行的自动化测试。
+- **`test_agent_ui.cjs`**：针对智能体多步执行轨迹折叠面板、工具调用卡片等 UI 组件进行的渲染测试。
+
+---
+
+### 测试执行命令
 
 ```powershell
-# 检索级指标：Hit@k、MRR、NDCG（按知识库类别判断，不能代表答案正确率）
+# 1. 执行全量 Python 白盒单元与回归测试（共 185 项测试用例）
+python -m unittest discover -s tests -v
+
+# 2. 执行前端交互与 UI 自动化回归测试（共 22 项测试用例）
+node --test tests/test_chat_ui.cjs tests/test_agent_ui.cjs
+
+# 3. 检索级指标评测：Hit@k、MRR、NDCG
 python main.py --eval
 
-# 答案级参考事实、证据、引用、拒答和歧义评测，三种检索模式分别输出
+# 4. 答案级参考事实、证据、引用、拒答和歧义评测（三种检索模式对照）
 python main.py --eval-answers
 
-# 回归测试
-python -m unittest discover -s tests -v
-node tests/test_chat_ui.cjs
-node --check web/static/js/chat.js
+# 5. 执行智能体离线决策与工具调用轨迹评测
+python eval/agent_evaluate.py
 ```
 
-答案评测输出 `eval/answer_eval_results.json`，题目在 `eval/answer_dataset.json`。另有12道复合/变式题 `eval/composite_dataset.json` 和 `eval/composite_eval_results.json`。检索评测输出 `eval/eval_results.json`。请同时阅读每题结果与指标定义；参考事实和数字匹配是自动检查代理指标，不等同于完整语义正确性。当前小样本题集不代表真实部署准确率。
+答案评测输出 `eval/answer_eval_results.json`，题目在 `eval/answer_dataset.json`。另有12道复合/变式题 `eval/composite_dataset.json` 和 `eval/composite_eval_results.json`。检索评测输出 `eval/eval_results.json`。标准用例库见 `eval/unified_test_cases.csv`（覆盖 7 大维度 400+ 条用例）。
 
 ## 可选生成模型与精排模型
 
